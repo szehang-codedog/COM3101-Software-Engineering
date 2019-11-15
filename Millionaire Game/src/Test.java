@@ -17,7 +17,7 @@ public class Test {
         //Frame
         JFrame frame = new JFrame("Project");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 500);
+        frame.setSize(1000, 500);
 
         //MenuBar
         JMenuBar mb = new JMenuBar();
@@ -29,17 +29,32 @@ public class Test {
         m1.add(m11);
         m1.add(m12);
         m1.add(m13);
-        
+
         //Main Panel
         JPanel mainPanel = new JPanel();
         JButton button = new JButton("Press");
-        mainPanel.add(button);
         
+        //Map Panel
+        JPanel mapPanel = new JPanel();
+        mapPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        for(int i = 0; i < 22; i++){
+            JLabel l = new JLabel("slot" + i);
+            int b = i*10;
+            l.setBackground( new Color(0, 0, b) );
+            l.setOpaque(true);
+            mapPanel.add(l);           
+        }
+
+        
+
+        //GridBagConstraints
+        mainPanel.setLayout(new GridBagLayout());
+        mainPanel.add(button);
+
         //Layout
         frame.getContentPane().add(BorderLayout.NORTH, mb);
-        frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
-               
-        
+        frame.getContentPane().add(BorderLayout.CENTER, mapPanel);
+
         frame.setVisible(true);
     }
 }
