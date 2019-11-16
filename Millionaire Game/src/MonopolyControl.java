@@ -8,7 +8,7 @@
  *
  * @author CTC
  */
-public class Control {
+public class MonopolyControl {
     public void move() {
     
     }

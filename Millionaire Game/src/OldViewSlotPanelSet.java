@@ -12,14 +12,14 @@ import javax.swing.*;
  *
  * @author CTC
  */
-public class ViewSlotPanelSet {
+public class OldViewSlotPanelSet {
     private JPanel slotPanel;
     private JLabel nameLabel;
     private JLabel priceLabel;
     private JLabel ownerLabel;
     private ArrayList<JLabel> playerSpaces;
 
-    public ViewSlotPanelSet(JPanel slotPanel, JLabel nameLabel, JLabel priceLabel, JLabel ownerLabel, ArrayList<JLabel> playerSpaces) {
+    public OldViewSlotPanelSet(JPanel slotPanel, JLabel nameLabel, JLabel priceLabel, JLabel ownerLabel, ArrayList<JLabel> playerSpaces) {
         this.slotPanel = slotPanel;
         this.nameLabel = nameLabel;
         this.priceLabel = priceLabel;

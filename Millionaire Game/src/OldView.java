@@ -15,20 +15,20 @@ import java.util.HashMap;
  *
  * @author CTC
  */
-public class View {
+public class OldView {
 
 
-    private Control control;
+    private MonopolyControl control;
     
-    public void setControl(Control control) {
+    public void setControl(MonopolyControl control) {
         this.control = control;
     }
 
     private JFrame mainFrame = null;
-    private ArrayList<ViewSlotPanelSet> slotPanelSets = null;
+    private ArrayList<OldViewSlotPanelSet> slotPanelSets = null;
 
     public static void main(String[] args) {
-        View v = new View();
+        OldView v = new OldView();
 
         ArrayList<Player> testPlayers = new ArrayList<Player>();
         for (int i = 0; i < 4; i++) {
@@ -75,9 +75,9 @@ public class View {
         mapPanel.setLayout(new GridBagLayout());
         GridBagConstraints c;
         //generate slotPanel
-        this.slotPanelSets = new ArrayList<ViewSlotPanelSet>();
+        this.slotPanelSets = new ArrayList<OldViewSlotPanelSet>();
         for (Slot s : slots) {
-            ViewSlotPanelSet slotPanelSet = buildSlot(s, players.size());
+            OldViewSlotPanelSet slotPanelSet = buildSlot(s, players.size());
             this.slotPanelSets.add(slotPanelSet);
             //allocatePanel
             c = new GridBagConstraints();
@@ -142,7 +142,7 @@ public class View {
 
     }
 
-    public ViewSlotPanelSet buildSlot(Slot slot, int numOfPlayer) {
+    public OldViewSlotPanelSet buildSlot(Slot slot, int numOfPlayer) {
         JPanel slotPanel = new JPanel();
         slotPanel.setLayout(new GridBagLayout());
         slotPanel.setBorder(BorderFactory.createEtchedBorder());
@@ -202,7 +202,7 @@ public class View {
 
         //Dimension d = new Dimension(500, 500);
         //slotPanel.setSize(d);
-        ViewSlotPanelSet slotPanelSet = new ViewSlotPanelSet(slotPanel, nameLabel, priceLabel, ownerLabel, playerLabels);
+        OldViewSlotPanelSet slotPanelSet = new OldViewSlotPanelSet(slotPanel, nameLabel, priceLabel, ownerLabel, playerLabels);
 
         return slotPanelSet;
     }
