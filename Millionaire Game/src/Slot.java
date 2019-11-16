@@ -15,7 +15,9 @@ class Slot {
     private int slotPrice;
     private Player owner;
 
-    public void Slot(int id, String name, int price) {
+
+
+    public Slot(int id, String name, int price) {
         this.slotID = id;
         this.slotName = name;
         this.slotPrice = price;
