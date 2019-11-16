@@ -1,7 +1,10 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,15 +17,15 @@ import java.util.ArrayList;
  */
 public class View {
 
-    /*
+
     private Control control;
     
     public void setControl(Control control) {
         this.control = control;
     }
-     */
-    private JFrame frame = null;
-    private ArrayList<JPanel> slotPanels = null;
+
+    private JFrame mainFrame = null;
+    private ArrayList<ViewSlotPanelSet> slotPanelSets = null;
 
     public static void main(String[] args) {
         View v = new View();
@@ -38,18 +41,21 @@ public class View {
             Slot s = new Slot(i, "" + i, i * 100);
             testSlots.add(s);
         }
+        testSlots.get(0).setSlotName("go");
+        testSlots.get(0).setSlotPrice(-2000);
 
         v.initialUi(testSlots, testPlayers);
     }
 
     private void initialUi(ArrayList<Slot> slots, ArrayList<Player> players) {
+
         //frame setting
-        JFrame mainFrame = new JFrame("Project");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(1000, 500);
+        this.mainFrame = new JFrame("Project");
+        this.mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.mainFrame.setSize(1300, 500);
 
         //layout
-        mainFrame.setLayout(new BorderLayout());
+        this.mainFrame.setLayout(new BorderLayout());
 
         //MenuBar
         JMenuBar mb = new JMenuBar();
@@ -62,18 +68,18 @@ public class View {
         m1.add(m12);
         m1.add(m13);
 
-        mainFrame.add(mb, BorderLayout.NORTH);
+        this.mainFrame.add(mb, BorderLayout.NORTH);
 
         //Map Panel
         JPanel mapPanel = new JPanel();
         mapPanel.setLayout(new GridBagLayout());
         GridBagConstraints c;
         //generate slotPanel
-        this.slotPanels = new ArrayList<JPanel>();
+        this.slotPanelSets = new ArrayList<ViewSlotPanelSet>();
         for (Slot s : slots) {
-            JPanel slotPanel = buildSlot(s);
-            slotPanels.add(slotPanel);
-            //allocatPanel
+            ViewSlotPanelSet slotPanelSet = buildSlot(s, players.size());
+            this.slotPanelSets.add(slotPanelSet);
+            //allocatePanel
             c = new GridBagConstraints();
             c.gridx = s.getSlotID();
             c.gridy = 0;
@@ -83,16 +89,60 @@ public class View {
             c.weighty = 20;
             c.fill = GridBagConstraints.HORIZONTAL;
             c.anchor = GridBagConstraints.CENTER;
-            mapPanel.add(slotPanel, c);
+            mapPanel.add(slotPanelSet.getSlotPanel(), c);
         }
 
-        mainFrame.add(mapPanel, BorderLayout.CENTER);
+        //allcate players to goSlot
+        int goSlot = -1;
+        for (Slot s : slots) {
+            if (s.getSlotPrice() < 0) {
+                goSlot = s.getSlotID();
+            }
+        }
+        if (goSlot == -1) {
+            //error message here
+        } else {
+            for (int i = 0; i < players.size(); i++) {
+                slotPanelSets.get(goSlot).getPlayerSpaces().get(i).setText("player " + i);
+            }
+        }
 
-        //
-        mainFrame.setVisible(true);
+        this.mainFrame.add(mapPanel, BorderLayout.CENTER);
+
+        /*
+        ////test button
+        JButton button = new JButton("kill all player");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (int i = 0; i < slots.size(); i++) {
+                    for (int j = 0; j < players.size(); j++) {
+                        slotPanelSets.get(i).getPlayerSpaces().get(j).setText(" ");
+                    }
+                }
+            }
+        });
+        this.mainFrame.add(button, BorderLayout.SOUTH);
+        */
+        
+        ////roll button
+        JButton rollButton = new JButton("roll dice");
+        rollButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            //int step = 1 + (int)(Math.random()*10);
+            control.move();
+            }
+        });
+        this.mainFrame.add(rollButton, BorderLayout.SOUTH);
+        ////
+
+        //display mainFrame
+        this.mainFrame.setVisible(true);
+
     }
 
-    public JPanel buildSlot(Slot slot) {
+    public ViewSlotPanelSet buildSlot(Slot slot, int numOfPlayer) {
         JPanel slotPanel = new JPanel();
         slotPanel.setLayout(new GridBagLayout());
         slotPanel.setBorder(BorderFactory.createEtchedBorder());
@@ -134,9 +184,26 @@ public class View {
         c.anchor = GridBagConstraints.CENTER;
         slotPanel.add(ownerLabel, c);
 
-        Dimension d = new Dimension(500, 500);
-        slotPanel.setSize(d);
+        ArrayList<JLabel> playerLabels = new ArrayList<JLabel>();
+        for (int i = 0; i < numOfPlayer; i++) {
+            JLabel playerLabel = new JLabel(" ", SwingConstants.CENTER);
+            c = new GridBagConstraints();
+            c.gridx = 0;
+            c.gridy = 3 + i;
+            c.gridwidth = 1;
+            c.gridheight = 1;
+            c.weightx = 0;
+            c.weighty = 0;
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.anchor = GridBagConstraints.CENTER;
+            playerLabels.add(playerLabel);
+            slotPanel.add(playerLabel, c);
+        }
 
-        return slotPanel;
+        //Dimension d = new Dimension(500, 500);
+        //slotPanel.setSize(d);
+        ViewSlotPanelSet slotPanelSet = new ViewSlotPanelSet(slotPanel, nameLabel, priceLabel, ownerLabel, playerLabels);
+
+        return slotPanelSet;
     }
 }
