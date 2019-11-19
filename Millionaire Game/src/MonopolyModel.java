@@ -1,14 +1,17 @@
 
 import java.util.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MonopolyModel {
 
+    
     private int turn;
     private Player turnHolder;
     private ArrayList<Player> players = new ArrayList<>();
     private ArrayList<Slot> slots = new ArrayList<>();
-
+    
     public void loadData() {
         File file = new File("SlotData.csv");
         try {
