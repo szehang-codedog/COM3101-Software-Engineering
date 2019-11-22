@@ -1,9 +1,16 @@
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javafx.scene.paint.Color;
+import javax.swing.*;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author lamsz
@@ -13,8 +20,69 @@ public class MonopolyView extends javax.swing.JFrame {
     /**
      * Creates new form MonopolyView
      */
+    private MonopolyControl control;
+
+    public void setControl(MonopolyControl c) {
+        this.control = c;
+    }
+
+    private ArrayList<SlotUiSet> slotUiSets = null;
+
     public MonopolyView() {
-        initComponents(); 
+        initComponents();
+        findAllSlotUiSets();
+
+        /*
+        //testing for build all slots and allocal players
+        //////////////////testing start//////////////////
+        ArrayList<Player> testPlayers = new ArrayList<Player>();
+        for (int i = 0; i < 4; i++) {
+            testPlayers.add(new Player(i, i * 100, 0));
+        }
+
+        ArrayList<Slot> testSlots = new ArrayList<Slot>();
+        testSlots.add(new Slot(0, "goSlot", -2000));
+        for (int i = 1; i < 23; i++) {
+            testSlots.add(new Slot(i, "Slot" + i, i * 10));
+        }
+
+        //initGame(testPlayers, testSlots);
+        //////////////////testing end//////////////////
+         */
+ /*
+        //testing for build all slots and allocal players with real slot data
+        //////////////////testing start//////////////////
+        ArrayList<Player> testPlayers = new ArrayList<Player>();
+        for (int i = 0; i < 4; i++) {
+            testPlayers.add(new Player(i, i * 100, 0));
+        }
+
+        ArrayList<Slot> testSlots = new ArrayList<Slot>();
+        
+        File file = new File("SlotData.csv");
+        try {
+            Scanner inputFile = new Scanner(file);
+
+            while (inputFile.hasNext()) {
+                String[] line = inputFile.nextLine().split(",");
+
+                int id = Integer.parseInt(line[0]);
+                String name = line[1];
+                int price = Integer.parseInt(line[2]);
+
+                Slot slot = new Slot(id, name, price);
+
+                testSlots.add(slot);
+                
+                System.out.println(slot.getSlotID() + " " + slot.getSlotName() + " " + slot.getSlotPrice());
+            }
+            inputFile.close();   
+        } catch (FileNotFoundException err) {
+            System.out.println("File not found");
+        }
+        initGame(testPlayers, testSlots);
+        //////////////////testing end//////////////////
+         */
     }
 
     /**
@@ -29,6 +97,127 @@ public class MonopolyView extends javax.swing.JFrame {
 
         tabbedPane = new javax.swing.JTabbedPane();
         gamePanel = new javax.swing.JPanel();
+        mapPanel = new javax.swing.JPanel();
+        slot0Panel = new javax.swing.JPanel();
+        nameLabel0 = new javax.swing.JLabel();
+        spaceLabel0 = new javax.swing.JLabel();
+        priceLabel0 = new javax.swing.JLabel();
+        ownerLabel0 = new javax.swing.JLabel();
+        slot22Panel = new javax.swing.JPanel();
+        nameLabel22 = new javax.swing.JLabel();
+        spaceLabel22 = new javax.swing.JLabel();
+        priceLabel22 = new javax.swing.JLabel();
+        ownerLabel22 = new javax.swing.JLabel();
+        slot1Panel = new javax.swing.JPanel();
+        nameLabel1 = new javax.swing.JLabel();
+        spaceLabel1 = new javax.swing.JLabel();
+        priceLabel1 = new javax.swing.JLabel();
+        ownerLabel1 = new javax.swing.JLabel();
+        slot21Panel = new javax.swing.JPanel();
+        nameLabel21 = new javax.swing.JLabel();
+        spaceLabel21 = new javax.swing.JLabel();
+        priceLabel21 = new javax.swing.JLabel();
+        ownerLabel21 = new javax.swing.JLabel();
+        slot20Panel = new javax.swing.JPanel();
+        ownerLabel20 = new javax.swing.JLabel();
+        priceLabel20 = new javax.swing.JLabel();
+        spaceLabel20 = new javax.swing.JLabel();
+        nameLabel20 = new javax.swing.JLabel();
+        slot19Panel = new javax.swing.JPanel();
+        nameLabel19 = new javax.swing.JLabel();
+        spaceLabel19 = new javax.swing.JLabel();
+        priceLabel19 = new javax.swing.JLabel();
+        ownerLabel19 = new javax.swing.JLabel();
+        slot10Panel = new javax.swing.JPanel();
+        nameLabel10 = new javax.swing.JLabel();
+        spaceLabel10 = new javax.swing.JLabel();
+        priceLabel10 = new javax.swing.JLabel();
+        ownerLabel10 = new javax.swing.JLabel();
+        slot9Panel = new javax.swing.JPanel();
+        spaceLabel9 = new javax.swing.JLabel();
+        nameLabel9 = new javax.swing.JLabel();
+        priceLabel9 = new javax.swing.JLabel();
+        ownerLabel9 = new javax.swing.JLabel();
+        slot8Panel = new javax.swing.JPanel();
+        nameLabel8 = new javax.swing.JLabel();
+        spaceLabel8 = new javax.swing.JLabel();
+        priceLabel8 = new javax.swing.JLabel();
+        ownerLabel8 = new javax.swing.JLabel();
+        slot18Panel = new javax.swing.JPanel();
+        nameLabel18 = new javax.swing.JLabel();
+        spaceLabel18 = new javax.swing.JLabel();
+        priceLabel18 = new javax.swing.JLabel();
+        ownerLabel18 = new javax.swing.JLabel();
+        slot17Panel = new javax.swing.JPanel();
+        ownerLabel17 = new javax.swing.JLabel();
+        priceLabel17 = new javax.swing.JLabel();
+        spaceLabel17 = new javax.swing.JLabel();
+        nameLabel17 = new javax.swing.JLabel();
+        centerPanel = new javax.swing.JPanel();
+        diceNumberLabel = new javax.swing.JLabel();
+        rollButton = new javax.swing.JButton();
+        tradeButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        slot13Panel = new javax.swing.JPanel();
+        nameLabel13 = new javax.swing.JLabel();
+        spaceLabel13 = new javax.swing.JLabel();
+        priceLabel13 = new javax.swing.JLabel();
+        ownerLabel13 = new javax.swing.JLabel();
+        slot12Panel = new javax.swing.JPanel();
+        ownerLabel12 = new javax.swing.JLabel();
+        priceLabel12 = new javax.swing.JLabel();
+        spaceLabel12 = new javax.swing.JLabel();
+        nameLabel12 = new javax.swing.JLabel();
+        slot11Panel = new javax.swing.JPanel();
+        nameLabel11 = new javax.swing.JLabel();
+        spaceLabel11 = new javax.swing.JLabel();
+        priceLabel11 = new javax.swing.JLabel();
+        ownerLabel11 = new javax.swing.JLabel();
+        slot16Panel = new javax.swing.JPanel();
+        ownerLabel16 = new javax.swing.JLabel();
+        priceLabel16 = new javax.swing.JLabel();
+        spaceLabel16 = new javax.swing.JLabel();
+        nameLabel16 = new javax.swing.JLabel();
+        slot2Panel = new javax.swing.JPanel();
+        nameLabel2 = new javax.swing.JLabel();
+        spaceLabel2 = new javax.swing.JLabel();
+        priceLabel2 = new javax.swing.JLabel();
+        ownerLabel2 = new javax.swing.JLabel();
+        slot14Panel = new javax.swing.JPanel();
+        nameLabel14 = new javax.swing.JLabel();
+        spaceLabel14 = new javax.swing.JLabel();
+        priceLabel14 = new javax.swing.JLabel();
+        ownerLabel14 = new javax.swing.JLabel();
+        slot15Panel = new javax.swing.JPanel();
+        nameLabel15 = new javax.swing.JLabel();
+        spaceLabel15 = new javax.swing.JLabel();
+        priceLabel15 = new javax.swing.JLabel();
+        ownerLabel15 = new javax.swing.JLabel();
+        slot3Panel = new javax.swing.JPanel();
+        nameLabel3 = new javax.swing.JLabel();
+        spaceLabel3 = new javax.swing.JLabel();
+        priceLabel3 = new javax.swing.JLabel();
+        ownerLabel3 = new javax.swing.JLabel();
+        slot4Panel = new javax.swing.JPanel();
+        nameLabel4 = new javax.swing.JLabel();
+        spaceLabel4 = new javax.swing.JLabel();
+        priceLabel4 = new javax.swing.JLabel();
+        ownerLabel4 = new javax.swing.JLabel();
+        slot5Panel = new javax.swing.JPanel();
+        nameLabel5 = new javax.swing.JLabel();
+        spaceLabel5 = new javax.swing.JLabel();
+        priceLabel5 = new javax.swing.JLabel();
+        ownerLabel5 = new javax.swing.JLabel();
+        slot6Panel = new javax.swing.JPanel();
+        nameLabel6 = new javax.swing.JLabel();
+        spaceLabel6 = new javax.swing.JLabel();
+        priceLabel6 = new javax.swing.JLabel();
+        ownerLabel6 = new javax.swing.JLabel();
+        slot7Panel = new javax.swing.JPanel();
+        nameLabel7 = new javax.swing.JLabel();
+        spaceLabel7 = new javax.swing.JLabel();
+        priceLabel7 = new javax.swing.JLabel();
+        ownerLabel7 = new javax.swing.JLabel();
         testingPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
@@ -36,15 +225,847 @@ public class MonopolyView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mapPanel.setBackground(new java.awt.Color(204, 204, 255));
+        java.awt.GridBagLayout jPanel24Layout = new java.awt.GridBagLayout();
+        jPanel24Layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        jPanel24Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
+        mapPanel.setLayout(jPanel24Layout);
+
+        slot0Panel.setMinimumSize(new java.awt.Dimension(200, 100));
+        slot0Panel.setPreferredSize(new java.awt.Dimension(205, 100));
+        slot0Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel0.setText("nameLabel0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        slot0Panel.add(nameLabel0, gridBagConstraints);
+
+        spaceLabel0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel0.setText("spaceLabel0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot0Panel.add(spaceLabel0, gridBagConstraints);
+
+        priceLabel0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel0.setText("priceLabel0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot0Panel.add(priceLabel0, gridBagConstraints);
+
+        ownerLabel0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel0.setText("ownerLabel0");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot0Panel.add(ownerLabel0, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        mapPanel.add(slot0Panel, gridBagConstraints);
+
+        slot22Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot22Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel22.setText("nameLabel22");
+        slot22Panel.add(nameLabel22, new java.awt.GridBagConstraints());
+
+        spaceLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel22.setText("jLabel86");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot22Panel.add(spaceLabel22, gridBagConstraints);
+
+        priceLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel22.setText("jLabel87");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot22Panel.add(priceLabel22, gridBagConstraints);
+
+        ownerLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel22.setText("jLabel88");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot22Panel.add(ownerLabel22, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        mapPanel.add(slot22Panel, gridBagConstraints);
+
+        slot1Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot1Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel1.setText("nameLabel1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        slot1Panel.add(nameLabel1, gridBagConstraints);
+
+        spaceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel1.setText("jLabel2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot1Panel.add(spaceLabel1, gridBagConstraints);
+
+        priceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel1.setText("jLabel3");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot1Panel.add(priceLabel1, gridBagConstraints);
+
+        ownerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel1.setText("jLabel4");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot1Panel.add(ownerLabel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot1Panel, gridBagConstraints);
+
+        slot21Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot21Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel21.setText("nameLabel21");
+        slot21Panel.add(nameLabel21, new java.awt.GridBagConstraints());
+
+        spaceLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel21.setText("jLabel82");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot21Panel.add(spaceLabel21, gridBagConstraints);
+
+        priceLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel21.setText("jLabel83");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot21Panel.add(priceLabel21, gridBagConstraints);
+
+        ownerLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel21.setText("jLabel84");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot21Panel.add(ownerLabel21, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        mapPanel.add(slot21Panel, gridBagConstraints);
+
+        slot20Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot20Panel.setLayout(new java.awt.GridBagLayout());
+
+        ownerLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel20.setText("jLabel80");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot20Panel.add(ownerLabel20, gridBagConstraints);
+
+        priceLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel20.setText("jLabel79");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot20Panel.add(priceLabel20, gridBagConstraints);
+
+        spaceLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel20.setText("jLabel78");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot20Panel.add(spaceLabel20, gridBagConstraints);
+
+        nameLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel20.setText("nameLabel20");
+        slot20Panel.add(nameLabel20, new java.awt.GridBagConstraints());
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        mapPanel.add(slot20Panel, gridBagConstraints);
+
+        slot19Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot19Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel19.setText("nameLabel19");
+        slot19Panel.add(nameLabel19, new java.awt.GridBagConstraints());
+
+        spaceLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel19.setText("jLabel74");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot19Panel.add(spaceLabel19, gridBagConstraints);
+
+        priceLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel19.setText("jLabel75");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot19Panel.add(priceLabel19, gridBagConstraints);
+
+        ownerLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel19.setText("jLabel76");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot19Panel.add(ownerLabel19, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot19Panel, gridBagConstraints);
+
+        slot10Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot10Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel10.setText("nameLabel10");
+        slot10Panel.add(nameLabel10, new java.awt.GridBagConstraints());
+
+        spaceLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel10.setText("jLabel38");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot10Panel.add(spaceLabel10, gridBagConstraints);
+
+        priceLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel10.setText("jLabel39");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot10Panel.add(priceLabel10, gridBagConstraints);
+
+        ownerLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel10.setText("jLabel40");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot10Panel.add(ownerLabel10, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 6;
+        mapPanel.add(slot10Panel, gridBagConstraints);
+
+        slot9Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot9Panel.setLayout(new java.awt.GridBagLayout());
+
+        spaceLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel9.setText("jLabel34");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot9Panel.add(spaceLabel9, gridBagConstraints);
+
+        nameLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel9.setText("nameLabel9");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        slot9Panel.add(nameLabel9, gridBagConstraints);
+
+        priceLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel9.setText("jLabel35");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot9Panel.add(priceLabel9, gridBagConstraints);
+
+        ownerLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel9.setText("jLabel36");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot9Panel.add(ownerLabel9, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 4;
+        mapPanel.add(slot9Panel, gridBagConstraints);
+
+        slot8Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot8Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel8.setText("nameLabel8");
+        slot8Panel.add(nameLabel8, new java.awt.GridBagConstraints());
+
+        spaceLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel8.setText("jLabel30");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot8Panel.add(spaceLabel8, gridBagConstraints);
+
+        priceLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel8.setText("jLabel31");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot8Panel.add(priceLabel8, gridBagConstraints);
+
+        ownerLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel8.setText("jLabel32");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot8Panel.add(ownerLabel8, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 2;
+        mapPanel.add(slot8Panel, gridBagConstraints);
+
+        slot18Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot18Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel18.setText("nameLabel18");
+        slot18Panel.add(nameLabel18, new java.awt.GridBagConstraints());
+
+        spaceLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel18.setText("jLabel70");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot18Panel.add(spaceLabel18, gridBagConstraints);
+
+        priceLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel18.setText("jLabel71");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot18Panel.add(priceLabel18, gridBagConstraints);
+
+        ownerLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel18.setText("jLabel72");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot18Panel.add(ownerLabel18, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot18Panel, gridBagConstraints);
+
+        slot17Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot17Panel.setLayout(new java.awt.GridBagLayout());
+
+        ownerLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel17.setText("jLabel68");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot17Panel.add(ownerLabel17, gridBagConstraints);
+
+        priceLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel17.setText("jLabel67");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot17Panel.add(priceLabel17, gridBagConstraints);
+
+        spaceLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel17.setText("jLabel66");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot17Panel.add(spaceLabel17, gridBagConstraints);
+
+        nameLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel17.setText("nameLabel17");
+        slot17Panel.add(nameLabel17, new java.awt.GridBagConstraints());
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot17Panel, gridBagConstraints);
+
+        centerPanel.setLayout(new java.awt.GridBagLayout());
+
+        diceNumberLabel.setFont(new java.awt.Font("新細明體", 0, 36)); // NOI18N
+        diceNumberLabel.setText("Dice");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        centerPanel.add(diceNumberLabel, gridBagConstraints);
+
+        rollButton.setText("Roll Dice!!!");
+        rollButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rollButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        centerPanel.add(rollButton, gridBagConstraints);
+
+        tradeButton.setText("Let's Trade");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        centerPanel.add(tradeButton, gridBagConstraints);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 29, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        centerPanel.add(jPanel1, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 13;
+        gridBagConstraints.gridheight = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        mapPanel.add(centerPanel, gridBagConstraints);
+
+        slot13Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot13Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel13.setText("nameLabel13");
+        slot13Panel.add(nameLabel13, new java.awt.GridBagConstraints());
+
+        spaceLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel13.setText("jLabel50");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot13Panel.add(spaceLabel13, gridBagConstraints);
+
+        priceLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel13.setText("jLabel51");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot13Panel.add(priceLabel13, gridBagConstraints);
+
+        ownerLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel13.setText("jLabel52");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot13Panel.add(ownerLabel13, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot13Panel, gridBagConstraints);
+
+        slot12Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot12Panel.setLayout(new java.awt.GridBagLayout());
+
+        ownerLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel12.setText("jLabel48");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot12Panel.add(ownerLabel12, gridBagConstraints);
+
+        priceLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel12.setText("jLabel47");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot12Panel.add(priceLabel12, gridBagConstraints);
+
+        spaceLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel12.setText("jLabel46");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot12Panel.add(spaceLabel12, gridBagConstraints);
+
+        nameLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel12.setText("nameLabel12");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        slot12Panel.add(nameLabel12, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot12Panel, gridBagConstraints);
+
+        slot11Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot11Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel11.setText("nameLabel11");
+        slot11Panel.add(nameLabel11, new java.awt.GridBagConstraints());
+
+        spaceLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel11.setText("jLabel42");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot11Panel.add(spaceLabel11, gridBagConstraints);
+
+        priceLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel11.setText("jLabel43");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot11Panel.add(priceLabel11, gridBagConstraints);
+
+        ownerLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel11.setText("jLabel44");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot11Panel.add(ownerLabel11, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot11Panel, gridBagConstraints);
+
+        slot16Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot16Panel.setLayout(new java.awt.GridBagLayout());
+
+        ownerLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel16.setText("jLabel64");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot16Panel.add(ownerLabel16, gridBagConstraints);
+
+        priceLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel16.setText("jLabel63");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot16Panel.add(priceLabel16, gridBagConstraints);
+
+        spaceLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel16.setText("jLabel62");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot16Panel.add(spaceLabel16, gridBagConstraints);
+
+        nameLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel16.setText("nameLabel16");
+        slot16Panel.add(nameLabel16, new java.awt.GridBagConstraints());
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot16Panel, gridBagConstraints);
+
+        slot2Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot2Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel2.setText("nameLabel2");
+        slot2Panel.add(nameLabel2, new java.awt.GridBagConstraints());
+
+        spaceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel2.setText("jLabel6");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot2Panel.add(spaceLabel2, gridBagConstraints);
+
+        priceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel2.setText("jLabel7");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot2Panel.add(priceLabel2, gridBagConstraints);
+
+        ownerLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel2.setText("jLabel8");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot2Panel.add(ownerLabel2, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot2Panel, gridBagConstraints);
+
+        slot14Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot14Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel14.setText("nameLabel14");
+        slot14Panel.add(nameLabel14, new java.awt.GridBagConstraints());
+
+        spaceLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel14.setText("jLabel54");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot14Panel.add(spaceLabel14, gridBagConstraints);
+
+        priceLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel14.setText("jLabel55");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot14Panel.add(priceLabel14, gridBagConstraints);
+
+        ownerLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel14.setText("jLabel56");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot14Panel.add(ownerLabel14, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot14Panel, gridBagConstraints);
+
+        slot15Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot15Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel15.setText("nameLabel15");
+        slot15Panel.add(nameLabel15, new java.awt.GridBagConstraints());
+
+        spaceLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel15.setText("jLabel58");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot15Panel.add(spaceLabel15, gridBagConstraints);
+
+        priceLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel15.setText("jLabel59");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot15Panel.add(priceLabel15, gridBagConstraints);
+
+        ownerLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel15.setText("jLabel60");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot15Panel.add(ownerLabel15, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        mapPanel.add(slot15Panel, gridBagConstraints);
+
+        slot3Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot3Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel3.setText("nameLabel3");
+        slot3Panel.add(nameLabel3, new java.awt.GridBagConstraints());
+
+        spaceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel3.setText("jLabel10");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot3Panel.add(spaceLabel3, gridBagConstraints);
+
+        priceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel3.setText("jLabel11");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot3Panel.add(priceLabel3, gridBagConstraints);
+
+        ownerLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel3.setText("jLabel12");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot3Panel.add(ownerLabel3, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot3Panel, gridBagConstraints);
+
+        slot4Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot4Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel4.setText("nameLabel4");
+        slot4Panel.add(nameLabel4, new java.awt.GridBagConstraints());
+
+        spaceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel4.setText("jLabel14");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot4Panel.add(spaceLabel4, gridBagConstraints);
+
+        priceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel4.setText("jLabel15");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot4Panel.add(priceLabel4, gridBagConstraints);
+
+        ownerLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel4.setText("jLabel16");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot4Panel.add(ownerLabel4, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot4Panel, gridBagConstraints);
+
+        slot5Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot5Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel5.setText("nameLabel5");
+        slot5Panel.add(nameLabel5, new java.awt.GridBagConstraints());
+
+        spaceLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel5.setText("jLabel18");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot5Panel.add(spaceLabel5, gridBagConstraints);
+
+        priceLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel5.setText("jLabel19");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot5Panel.add(priceLabel5, gridBagConstraints);
+
+        ownerLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel5.setText("jLabel20");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot5Panel.add(ownerLabel5, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot5Panel, gridBagConstraints);
+
+        slot6Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot6Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel6.setText("nameLabel6");
+        slot6Panel.add(nameLabel6, new java.awt.GridBagConstraints());
+
+        spaceLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel6.setText("jLabel22");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot6Panel.add(spaceLabel6, gridBagConstraints);
+
+        priceLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel6.setText("jLabel23");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot6Panel.add(priceLabel6, gridBagConstraints);
+
+        ownerLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel6.setText("jLabel24");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot6Panel.add(ownerLabel6, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot6Panel, gridBagConstraints);
+
+        slot7Panel.setPreferredSize(new java.awt.Dimension(100, 100));
+        slot7Panel.setLayout(new java.awt.GridBagLayout());
+
+        nameLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nameLabel7.setText("nameLabel7");
+        slot7Panel.add(nameLabel7, new java.awt.GridBagConstraints());
+
+        spaceLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        spaceLabel7.setText("jLabel26");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        slot7Panel.add(spaceLabel7, gridBagConstraints);
+
+        priceLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        priceLabel7.setText("jLabel27");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        slot7Panel.add(priceLabel7, gridBagConstraints);
+
+        ownerLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ownerLabel7.setText("jLabel28");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        slot7Panel.add(ownerLabel7, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 0;
+        mapPanel.add(slot7Panel, gridBagConstraints);
+
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
         gamePanelLayout.setHorizontalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addComponent(mapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE)
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addComponent(mapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("game board", gamePanel);
@@ -53,11 +1074,11 @@ public class MonopolyView extends javax.swing.JFrame {
         testingPanel.setLayout(testingPanelLayout);
         testingPanelLayout.setHorizontalGroup(
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 995, Short.MAX_VALUE)
+            .addGap(0, 993, Short.MAX_VALUE)
         );
         testingPanelLayout.setVerticalGroup(
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 467, Short.MAX_VALUE)
+            .addGap(0, 646, Short.MAX_VALUE)
         );
 
         tabbedPane.addTab("testing panel", testingPanel);
@@ -95,6 +1116,10 @@ public class MonopolyView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_menuItem1ActionPerformed
 
+    private void rollButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollButtonActionPerformed
+        control.move();
+    }//GEN-LAST:event_rollButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -109,16 +1134,24 @@ public class MonopolyView extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MonopolyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MonopolyView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MonopolyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MonopolyView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MonopolyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MonopolyView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MonopolyView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MonopolyView.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -130,12 +1163,220 @@ public class MonopolyView extends javax.swing.JFrame {
         });
     }
 
+    private void findAllSlotUiSets() {
+        this.slotUiSets = new ArrayList<SlotUiSet>();
+        int i = 0;
+        slotUiSets.add(new SlotUiSet(i++, slot0Panel, nameLabel0, spaceLabel0, priceLabel0, ownerLabel0));
+        slotUiSets.add(new SlotUiSet(i++, slot1Panel, nameLabel1, spaceLabel1, priceLabel1, ownerLabel1));
+        slotUiSets.add(new SlotUiSet(i++, slot2Panel, nameLabel2, spaceLabel2, priceLabel2, ownerLabel2));
+        slotUiSets.add(new SlotUiSet(i++, slot3Panel, nameLabel3, spaceLabel3, priceLabel3, ownerLabel3));
+        slotUiSets.add(new SlotUiSet(i++, slot4Panel, nameLabel4, spaceLabel4, priceLabel4, ownerLabel4));
+        slotUiSets.add(new SlotUiSet(i++, slot5Panel, nameLabel5, spaceLabel5, priceLabel5, ownerLabel5));
+        slotUiSets.add(new SlotUiSet(i++, slot6Panel, nameLabel6, spaceLabel6, priceLabel6, ownerLabel6));
+        slotUiSets.add(new SlotUiSet(i++, slot7Panel, nameLabel7, spaceLabel7, priceLabel7, ownerLabel7));
+        slotUiSets.add(new SlotUiSet(i++, slot8Panel, nameLabel8, spaceLabel8, priceLabel8, ownerLabel8));
+        slotUiSets.add(new SlotUiSet(i++, slot9Panel, nameLabel9, spaceLabel9, priceLabel9, ownerLabel9));
+        slotUiSets.add(new SlotUiSet(i++, slot10Panel, nameLabel10, spaceLabel10, priceLabel10, ownerLabel10));
+        slotUiSets.add(new SlotUiSet(i++, slot11Panel, nameLabel11, spaceLabel11, priceLabel11, ownerLabel11));
+        slotUiSets.add(new SlotUiSet(i++, slot12Panel, nameLabel12, spaceLabel12, priceLabel12, ownerLabel12));
+        slotUiSets.add(new SlotUiSet(i++, slot13Panel, nameLabel13, spaceLabel13, priceLabel13, ownerLabel13));
+        slotUiSets.add(new SlotUiSet(i++, slot14Panel, nameLabel14, spaceLabel14, priceLabel14, ownerLabel14));
+        slotUiSets.add(new SlotUiSet(i++, slot15Panel, nameLabel15, spaceLabel15, priceLabel15, ownerLabel15));
+        slotUiSets.add(new SlotUiSet(i++, slot16Panel, nameLabel16, spaceLabel16, priceLabel16, ownerLabel16));
+        slotUiSets.add(new SlotUiSet(i++, slot17Panel, nameLabel17, spaceLabel17, priceLabel17, ownerLabel17));
+        slotUiSets.add(new SlotUiSet(i++, slot18Panel, nameLabel18, spaceLabel18, priceLabel18, ownerLabel18));
+        slotUiSets.add(new SlotUiSet(i++, slot19Panel, nameLabel19, spaceLabel19, priceLabel19, ownerLabel19));
+        slotUiSets.add(new SlotUiSet(i++, slot20Panel, nameLabel20, spaceLabel20, priceLabel20, ownerLabel20));
+        slotUiSets.add(new SlotUiSet(i++, slot21Panel, nameLabel21, spaceLabel21, priceLabel21, ownerLabel21));
+        slotUiSets.add(new SlotUiSet(i++, slot22Panel, nameLabel22, spaceLabel22, priceLabel22, ownerLabel22));
+    }
+
+    public void initGame(ArrayList<Player> players, ArrayList<Slot> slots) {
+        //slot
+        for (Slot s : slots) {
+            SlotUiSet sus = slotUiSets.get(s.getSlotID());
+            if (s.getSlotPrice() <= 0) {//go slot
+                sus.getPanel().setBackground(java.awt.Color.PINK);
+                //sus.getNameLabel().setText(Integer.toString(s.getSlotID()) + " " + s.getSlotName());
+                sus.getNameLabel().setText(s.getSlotName());
+                sus.getSpaceLabel().setText(" ");
+                sus.getPriceLabel().setText("+$" + Integer.toString(Math.abs(s.getSlotPrice())));
+                sus.getOwnerLabel().setText("get bonus");
+            } else {//normal slot
+                //sus.getNameLabel().setText(Integer.toString(s.getSlotID()) + " " + s.getSlotName());
+                sus.getNameLabel().setText(s.getSlotName());
+                sus.getSpaceLabel().setText(" ");
+                sus.getPriceLabel().setText("$" + Integer.toString(s.getSlotPrice()));
+                sus.getOwnerLabel().setText("available");
+            }
+        }
+
+        //player
+        for (Player p : players) {
+            JLabel spaceLabel = slotUiSets.get(p.getPosition()).getSpaceLabel();
+            String tmp = spaceLabel.getText().trim();
+            spaceLabel.setText((tmp + " " + Integer.toString(p.getPlayerID())).trim());
+        }
+    }
+
+    public void refreshView(ArrayList<Player> players, ArrayList<Slot> slots) {
+        //clear all slots
+        for (SlotUiSet sus : slotUiSets) {
+            sus.getSpaceLabel().setText(" ");
+            sus.getOwnerLabel().setText(" ");
+        }
+
+        //reprint player's information
+        for (Player p : players) {
+            if (!p.isIsBankrupt()) {
+                //print id to ownedslot
+                for (Slot os : p.getOwnedSlots()) {
+                    JLabel ownerLabel = slotUiSets.get(os.getSlotID()).getOwnerLabel();
+                    ownerLabel.setText(Integer.toString(p.getPlayerID()));
+                }
+                //print id to located slot
+                JLabel spaceLabel = slotUiSets.get(p.getPosition()).getSpaceLabel();
+                String tmp = spaceLabel.getText().trim();
+                spaceLabel.setText((tmp + " " + Integer.toString(p.getPlayerID())).trim());
+            }
+        }
+        
+        //clear dash board
+        //reprint dash board
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel centerPanel;
+    private javax.swing.JLabel diceNumberLabel;
     private javax.swing.JPanel gamePanel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel mapPanel;
     private javax.swing.JMenu menu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuItem1;
+    private javax.swing.JLabel nameLabel0;
+    private javax.swing.JLabel nameLabel1;
+    private javax.swing.JLabel nameLabel10;
+    private javax.swing.JLabel nameLabel11;
+    private javax.swing.JLabel nameLabel12;
+    private javax.swing.JLabel nameLabel13;
+    private javax.swing.JLabel nameLabel14;
+    private javax.swing.JLabel nameLabel15;
+    private javax.swing.JLabel nameLabel16;
+    private javax.swing.JLabel nameLabel17;
+    private javax.swing.JLabel nameLabel18;
+    private javax.swing.JLabel nameLabel19;
+    private javax.swing.JLabel nameLabel2;
+    private javax.swing.JLabel nameLabel20;
+    private javax.swing.JLabel nameLabel21;
+    private javax.swing.JLabel nameLabel22;
+    private javax.swing.JLabel nameLabel3;
+    private javax.swing.JLabel nameLabel4;
+    private javax.swing.JLabel nameLabel5;
+    private javax.swing.JLabel nameLabel6;
+    private javax.swing.JLabel nameLabel7;
+    private javax.swing.JLabel nameLabel8;
+    private javax.swing.JLabel nameLabel9;
+    private javax.swing.JLabel ownerLabel0;
+    private javax.swing.JLabel ownerLabel1;
+    private javax.swing.JLabel ownerLabel10;
+    private javax.swing.JLabel ownerLabel11;
+    private javax.swing.JLabel ownerLabel12;
+    private javax.swing.JLabel ownerLabel13;
+    private javax.swing.JLabel ownerLabel14;
+    private javax.swing.JLabel ownerLabel15;
+    private javax.swing.JLabel ownerLabel16;
+    private javax.swing.JLabel ownerLabel17;
+    private javax.swing.JLabel ownerLabel18;
+    private javax.swing.JLabel ownerLabel19;
+    private javax.swing.JLabel ownerLabel2;
+    private javax.swing.JLabel ownerLabel20;
+    private javax.swing.JLabel ownerLabel21;
+    private javax.swing.JLabel ownerLabel22;
+    private javax.swing.JLabel ownerLabel3;
+    private javax.swing.JLabel ownerLabel4;
+    private javax.swing.JLabel ownerLabel5;
+    private javax.swing.JLabel ownerLabel6;
+    private javax.swing.JLabel ownerLabel7;
+    private javax.swing.JLabel ownerLabel8;
+    private javax.swing.JLabel ownerLabel9;
+    private javax.swing.JLabel priceLabel0;
+    private javax.swing.JLabel priceLabel1;
+    private javax.swing.JLabel priceLabel10;
+    private javax.swing.JLabel priceLabel11;
+    private javax.swing.JLabel priceLabel12;
+    private javax.swing.JLabel priceLabel13;
+    private javax.swing.JLabel priceLabel14;
+    private javax.swing.JLabel priceLabel15;
+    private javax.swing.JLabel priceLabel16;
+    private javax.swing.JLabel priceLabel17;
+    private javax.swing.JLabel priceLabel18;
+    private javax.swing.JLabel priceLabel19;
+    private javax.swing.JLabel priceLabel2;
+    private javax.swing.JLabel priceLabel20;
+    private javax.swing.JLabel priceLabel21;
+    private javax.swing.JLabel priceLabel22;
+    private javax.swing.JLabel priceLabel3;
+    private javax.swing.JLabel priceLabel4;
+    private javax.swing.JLabel priceLabel5;
+    private javax.swing.JLabel priceLabel6;
+    private javax.swing.JLabel priceLabel7;
+    private javax.swing.JLabel priceLabel8;
+    private javax.swing.JLabel priceLabel9;
+    private javax.swing.JButton rollButton;
+    private javax.swing.JPanel slot0Panel;
+    private javax.swing.JPanel slot10Panel;
+    private javax.swing.JPanel slot11Panel;
+    private javax.swing.JPanel slot12Panel;
+    private javax.swing.JPanel slot13Panel;
+    private javax.swing.JPanel slot14Panel;
+    private javax.swing.JPanel slot15Panel;
+    private javax.swing.JPanel slot16Panel;
+    private javax.swing.JPanel slot17Panel;
+    private javax.swing.JPanel slot18Panel;
+    private javax.swing.JPanel slot19Panel;
+    private javax.swing.JPanel slot1Panel;
+    private javax.swing.JPanel slot20Panel;
+    private javax.swing.JPanel slot21Panel;
+    private javax.swing.JPanel slot22Panel;
+    private javax.swing.JPanel slot2Panel;
+    private javax.swing.JPanel slot3Panel;
+    private javax.swing.JPanel slot4Panel;
+    private javax.swing.JPanel slot5Panel;
+    private javax.swing.JPanel slot6Panel;
+    private javax.swing.JPanel slot7Panel;
+    private javax.swing.JPanel slot8Panel;
+    private javax.swing.JPanel slot9Panel;
+    private javax.swing.JLabel spaceLabel0;
+    private javax.swing.JLabel spaceLabel1;
+    private javax.swing.JLabel spaceLabel10;
+    private javax.swing.JLabel spaceLabel11;
+    private javax.swing.JLabel spaceLabel12;
+    private javax.swing.JLabel spaceLabel13;
+    private javax.swing.JLabel spaceLabel14;
+    private javax.swing.JLabel spaceLabel15;
+    private javax.swing.JLabel spaceLabel16;
+    private javax.swing.JLabel spaceLabel17;
+    private javax.swing.JLabel spaceLabel18;
+    private javax.swing.JLabel spaceLabel19;
+    private javax.swing.JLabel spaceLabel2;
+    private javax.swing.JLabel spaceLabel20;
+    private javax.swing.JLabel spaceLabel21;
+    private javax.swing.JLabel spaceLabel22;
+    private javax.swing.JLabel spaceLabel3;
+    private javax.swing.JLabel spaceLabel4;
+    private javax.swing.JLabel spaceLabel5;
+    private javax.swing.JLabel spaceLabel6;
+    private javax.swing.JLabel spaceLabel7;
+    private javax.swing.JLabel spaceLabel8;
+    private javax.swing.JLabel spaceLabel9;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JPanel testingPanel;
+    private javax.swing.JButton tradeButton;
     // End of variables declaration//GEN-END:variables
+
+    void displayDiceMessage(String s) {
+        diceNumberLabel.setText(s);
+    }
+
 }
