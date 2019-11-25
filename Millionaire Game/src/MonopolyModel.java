@@ -14,7 +14,7 @@ public class MonopolyModel {
     public void loadData() {
         ///fake player data
         for (int i = 0; i < 4; i++) {
-            players.add(new Player(i, i * 100, 0));
+            players.add(new Player(i, 2000, 0));
         }
         turnHolder = players.get(0);
         ///
