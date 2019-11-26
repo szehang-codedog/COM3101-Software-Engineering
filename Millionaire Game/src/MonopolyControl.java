@@ -31,67 +31,191 @@ public class MonopolyControl {
 
     }
 
-    private boolean turnStarted = false;
-    private boolean turnEnd = true;
+    //0: wait for playerX roll dice
+    //1: dice rolled, slot is available, playerX have enought money to buy, waiting for decision
+    //11: buy is selected, wait for comfirm turn end
+    //12: not but is selected, wait for comfirm turn end
+    //2: dice rolled, slot is available, playerX have not enought money to buy, waiting for turn end
+    //31: dice rolled, slot has owner, player can pay rent, waiting for confirm turn end
+    //32: dice rolled, slot has owner, player bankrupt, waiting for confirm turn end
+    //999: dice rolled, reach goSlot, waiting for turn end
+    private int turnStage = 0;
 
     public void main() {
-        if (!turnStarted && turnEnd) { //no one in turn
-            turnStarted = true;
-            turnEnd = false;
+        switch (turnStage) {
+            case 0:
+                //move turnHolder
+                int step = (int) (Math.random() * 10) + 1;
+                int currentPosition = model.getTurnHolder().getPosition();
 
-            //move turnHolder
-            int step = (int) (Math.random() * 10) + 1;
-            int currentPosition = model.getTurnHolder().getPosition();
-            int newPosition = (currentPosition + step) % model.getSlots().size();
-            model.getTurnHolder().setPosition(newPosition);
-
-            //display view message 
-            String oldSlotName = model.getSlots().get(currentPosition).getSlotName();
-            String newSlotName = model.getSlots().get(newPosition).getSlotName();
-            view.displayMainMessage(Integer.toString(step) + " step(s): " + oldSlotName + " -> " + newSlotName);
-
-            //check slot available or not
-            if (model.getSlots().get(model.getTurnHolder().getPosition()).getOwner() == null) { //slot no owner
-                if (model.getTurnHolder().getBalance() >= model.getSlots().get(newPosition).getSlotPrice()) { //turnHolder has enough balance to buy
-                    //view.displayMainMessage("The slot is available");
-                    view.displayMainButton("Buy!");
-                    view.displaySecondButton("Not this time, Turn end");
-                } else { //no money to buy
-                    //confirm turn end
+                Slot goSlot = null;
+                int bonus = 0;
+                for (Slot s : model.getSlots()) {
+                    if (s.getSlotPrice() <= 0) {
+                        goSlot = s;
+                        bonus = Math.abs(goSlot.getSlotPrice());
+                    }
                 }
-            } else {
-                //payRent()
-            }
+                if (goSlot != null) {
+                    int tmpPosition = currentPosition;
+                    for (int i = 0; i < step; i++) {
+                        tmpPosition++;
+                        if (tmpPosition >= model.getSlots().size()) {
+                            tmpPosition = tmpPosition % model.getSlots().size();
+                        }
+                        if (tmpPosition == goSlot.getSlotID()) {
+                            model.getTurnHolder().setBalance(model.getTurnHolder().getBalance() + bonus);
+                            System.out.println(model.getTurnHolder().getPlayerID() + "get bouns");
+                        }
+                    }
 
-        } else if (turnStarted && !turnEnd) { //someone rolled dice , in turn
-            //testing escape//
-                turnStarted = false;
-                turnEnd = true;
-            //testing escape//
+                }
+
+                int newPosition = (currentPosition + step) % model.getSlots().size();
+                model.getTurnHolder().setPosition(newPosition);
+
+                //display view message 
+                String oldSlotName = model.getSlots().get(currentPosition).getSlotName();
+                String newSlotName = model.getSlots().get(newPosition).getSlotName();
+                view.displayMainMessage(Integer.toString(step) + " step(s): " + oldSlotName + " -> " + newSlotName);
+
+                if (model.getSlots().get(model.getTurnHolder().getPosition()).getSlotPrice() <= 0) { //check if position is go slot
+                    turnStage = 999;
+                    view.displaySecondMessage("You get $" + bonus + " bonus!");
+                    view.displayMainButton("Turn End!");
+                    view.displaySecondButton(null);
+                } else {
+                    //check slot available or not
+                    if (checkLocationOwner() == null) { //slot no owner
+                        if (model.getTurnHolder().getBalance() >= model.getSlots().get(newPosition).getSlotPrice()) { //turnHolder has enough balance to buy
+                            turnStage = 1;
+                            view.displaySecondMessage("The slot is available");
+                            view.displayMainButton("Buy!");
+                            view.displaySecondButton("Not this time, Turn end");
+                        } else { //no money to buy
+                            //confirm turn end
+                            turnStage = 2;
+                            view.displaySecondMessage("not enough money to buy");
+                            view.displayMainButton("Turn End!");
+                            view.displaySecondButton(null);
+                        }
+                    } else {
+                        int payedAmount = payRent();
+                        if (payedAmount == -1) {//debtor can pay
+                            turnStage = 31;
+                            view.displaySecondMessage("You payed $" + checkLocationRent() + " to player " + checkLocationOwner().getPlayerID());
+                            view.displayMainButton("Turn End!");
+                            view.displaySecondButton(null);
+                        } else {//debtor bankruot
+                            turnStage = 32;
+                            view.displaySecondMessage("You are bankrupted, you payed $" + payedAmount + " to player " + checkLocationOwner().getPlayerID());
+                            view.displayMainButton("Turn End!");
+                            view.displaySecondButton(null);
+                        }
+                    }
+                }
+                break;
+            case 1:
+                //buy slot
+                turnStage = 11;
+                int position = model.getTurnHolder().getPosition();
+                Slot slot = model.getSlots().get(position);
+
+                model.getTurnHolder().buySlot(slot);
+                slot.boughtBy(model.getTurnHolder());
+
+                view.displaySecondMessage("You bought the " + slot.getSlotName() + "!");
+                view.displayMainButton("Turn End!");
+                view.displaySecondButton(null);
+                break;
+            case 11:
+            case 12:
+            case 2:
+            case 31:
+            case 32:
+            case 999:
+                turnStage = 0;
+                //point to next player
+                int nextPlayerID = (model.getTurnHolder().getPlayerID() + 1) % 4;
+                Player nextPlayer = null;
+                while (nextPlayer == null) {
+                    Player p = model.getPlayers().get(nextPlayerID);
+                    if (p.isIsBankrupt()) {
+                        nextPlayerID++;
+                    } else {
+                        nextPlayer = p;
+                        model.setTurnHolder(nextPlayer);
+                    }
+                }
+                view.displayMainMessage("Roll dice to move!");
+                view.displayTurnMessage("Player" + model.getTurnHolder().getPlayerID() + "'s Turn");
+                view.displaySecondMessage(" ");
+                view.displayMainButton("Roll Dice!!!");
+                view.displaySecondButton("Let's Trade");
+                break;
+            default:
+                break;
         }
+
         //refreshView
+        System.out.println("yoooo");
         view.refreshView(model.getPlayers(), model.getSlots());
     }
 
     public void second() {
-        if (!turnStarted && turnEnd) { //noone in turn
-            //trade
-        } else if (turnStarted && !turnEnd) { //someone dice , in turn
-            turnStarted = false;
-            turnEnd = true;
+        switch (turnStage) {
+            case 0:
+                //trade()
+                break;
+            case 1:
+                //not buy slot
+                turnStage = 12;
+                int position = model.getTurnHolder().getPosition();
+                Slot slot = model.getSlots().get(position);
 
-            //point to next player
-            int nextPlayer = (model.getTurnHolder().getPlayerID() + 1) % model.getPlayers().size();
-            model.setTurnHolder(model.getPlayers().get(nextPlayer));
-
-            //display view message 
-            view.displayTurnMessage("Player" + model.getTurnHolder().getPlayerID() + "'s Turn");
-            view.displayMainMessage("Roll dice to move!");
+                view.displaySecondMessage("You did not buy " + slot.getSlotName() + "?!");
+                view.displayMainButton("Turn End!");
+                view.displaySecondButton(null);
+                break;
+            default:
+                break;
         }
+
+        //refreshView
+        view.refreshView(model.getPlayers(), model.getSlots());
     }
 
     public static void main(String[] args) {
         MonopolyControl c = new MonopolyControl();
+    }
+
+    private int checkLocationRent() {
+        int position = model.getTurnHolder().getPosition();
+        int price = model.getSlots().get(position).getSlotPrice();
+        int rent = (int) Math.round(price * 0.1);
+        return rent;
+    }
+
+    private Player checkLocationOwner() {
+        int position = model.getTurnHolder().getPosition();
+        Player owner = model.getSlots().get(position).getOwner();
+        return owner;
+    }
+
+    private int payRent() {
+        Player owner = checkLocationOwner();
+        int rent = checkLocationRent();
+        Player debtor = model.getTurnHolder();
+
+        if (debtor.getBalance() < rent) { //bankrupt
+            int payedAmount = debtor.bankrupt(owner);
+            return payedAmount;
+        } else {
+            debtor.setBalance(debtor.getBalance() - rent);
+            owner.setBalance(owner.getBalance() + rent);
+            return -1;
+        }
+
     }
 
 }

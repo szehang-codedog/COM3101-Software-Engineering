@@ -26,14 +26,22 @@ public class Player {
         this.ownedSlots = new ArrayList<Slot>();
     }
     
-    public void bankrupt(Player loaner) {
+    public int bankrupt(Player loaner) {
         this.isBankrupt = true;
+        int payedAmount = this.balance;
         loaner.setBalance(loaner.getBalance() + this.balance);
         this.balance = 0;
+        
+        for(Slot s : ownedSlots) {
+            s.setOwner(null);
+        }
         ownedSlots = null;
+        
+        return payedAmount;
     }
     
     public void buySlot(Slot slot) {
+        this.balance = this.balance - slot.getSlotPrice();
         this.ownedSlots.add(slot);
     }
 

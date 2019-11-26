@@ -21,14 +21,14 @@ public class MonopolyView extends javax.swing.JFrame {
      * Creates new form MonopolyView
      */
     private MonopolyControl control;
-    
+
     public void setControl(MonopolyControl c) {
         this.control = c;
     }
-    
+
     private ArrayList<SlotUiSet> slotUiSets = null;
     private ArrayList<PlayerUiSet> playerUiSets = null;
-    
+
     public MonopolyView() {
         initComponents();
         findAllSlotUiSets();
@@ -160,6 +160,7 @@ public class MonopolyView extends javax.swing.JFrame {
         mainButton = new javax.swing.JButton();
         secondButton = new javax.swing.JButton();
         turnLabel = new javax.swing.JLabel();
+        secondMessageLabel = new javax.swing.JLabel();
         slot13Panel = new javax.swing.JPanel();
         nameLabel13 = new javax.swing.JLabel();
         spaceLabel13 = new javax.swing.JLabel();
@@ -748,10 +749,11 @@ public class MonopolyView extends javax.swing.JFrame {
         centerPanel.setLayout(new java.awt.GridBagLayout());
 
         mainMessageLabel.setFont(new java.awt.Font("新細明體", 0, 36)); // NOI18N
+        mainMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         mainMessageLabel.setText("Dice");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.ipadx = 7;
         gridBagConstraints.ipady = 7;
         centerPanel.add(mainMessageLabel, gridBagConstraints);
@@ -766,7 +768,7 @@ public class MonopolyView extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.ipadx = 7;
         gridBagConstraints.ipady = 7;
         centerPanel.add(mainButton, gridBagConstraints);
@@ -781,17 +783,26 @@ public class MonopolyView extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.ipadx = 7;
         gridBagConstraints.ipady = 7;
         centerPanel.add(secondButton, gridBagConstraints);
 
         turnLabel.setFont(new java.awt.Font("微軟正黑體", 0, 24)); // NOI18N
+        turnLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         turnLabel.setText("PlayerX's Turn");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         centerPanel.add(turnLabel, gridBagConstraints);
+
+        secondMessageLabel.setFont(new java.awt.Font("微軟正黑體", 1, 18)); // NOI18N
+        secondMessageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        secondMessageLabel.setText("secondMessageLabel");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        centerPanel.add(secondMessageLabel, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -1341,7 +1352,6 @@ public class MonopolyView extends javax.swing.JFrame {
         statusPanel.setLayout(statusPanelLayout);
 
         playerPanel3.setMaximumSize(null);
-        playerPanel3.setMinimumSize(null);
 
         playerNameLabel3.setFont(new java.awt.Font("微軟正黑體", 0, 18)); // NOI18N
         playerNameLabel3.setText("playerNameLabel3");
@@ -1382,7 +1392,6 @@ public class MonopolyView extends javax.swing.JFrame {
         statusPanel.add(playerPanel3, gridBagConstraints);
 
         playerPanel2.setMaximumSize(null);
-        playerPanel2.setMinimumSize(null);
 
         playerNameLabel2.setFont(new java.awt.Font("微軟正黑體", 0, 18)); // NOI18N
         playerNameLabel2.setText("playerNameLabel2");
@@ -1423,7 +1432,6 @@ public class MonopolyView extends javax.swing.JFrame {
         statusPanel.add(playerPanel2, gridBagConstraints);
 
         playerPanel1.setMaximumSize(null);
-        playerPanel1.setMinimumSize(null);
 
         playerNameLabel1.setFont(new java.awt.Font("微軟正黑體", 0, 18)); // NOI18N
         playerNameLabel1.setText("playerNameLabel1");
@@ -1464,7 +1472,6 @@ public class MonopolyView extends javax.swing.JFrame {
         statusPanel.add(playerPanel1, gridBagConstraints);
 
         playerPanel0.setMaximumSize(null);
-        playerPanel0.setMinimumSize(null);
 
         playerNameLabel0.setFont(new java.awt.Font("微軟正黑體", 0, 18)); // NOI18N
         playerNameLabel0.setText("playerNameLabel0");
@@ -1589,21 +1596,21 @@ public class MonopolyView extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MonopolyView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(MonopolyView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(MonopolyView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MonopolyView.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -1617,14 +1624,14 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void findAllPlayerUiSets() {
-        
+
         ArrayList<JPanel> playerPanel = new ArrayList<>();
         ArrayList<JLabel> playerNameLabel = new ArrayList<>();
         ArrayList<JLabel> playerPosistionLabel = new ArrayList<>();
         ArrayList<JLabel> playerBalanceLabel = new ArrayList<>();
-        
+
         playerPanel.add(playerPanel0);
         playerPanel.add(playerPanel1);
         playerPanel.add(playerPanel2);
@@ -1641,13 +1648,13 @@ public class MonopolyView extends javax.swing.JFrame {
         playerBalanceLabel.add(playerBalanceLabel1);
         playerBalanceLabel.add(playerBalanceLabel2);
         playerBalanceLabel.add(playerBalanceLabel3);
-        
+
         this.playerUiSets = new ArrayList<PlayerUiSet>();
         for (int i = 0; i < 4; i++) {
             playerUiSets.add(new PlayerUiSet(i, playerPanel.get(i), playerNameLabel.get(i), playerPosistionLabel.get(i), playerBalanceLabel.get(i)));
         }
     }
-    
+
     private void findAllSlotUiSets() {
         //store every ui element into array
         ArrayList<JPanel> slotPanel = new ArrayList<>();
@@ -1775,9 +1782,9 @@ public class MonopolyView extends javax.swing.JFrame {
         for (int i = 0; i < 23; i++) {
             slotUiSets.add(new SlotUiSet(i, slotPanel.get(i), nameLabel.get(i), spaceLabel.get(i), priceLabel.get(i), ownerLabel.get(i)));
         }
-        
+
     }
-    
+
     public void initGame(ArrayList<Player> players, ArrayList<Slot> slots, Player turnHolder) {
         //slot
         for (Slot s : slots) {
@@ -1811,15 +1818,19 @@ public class MonopolyView extends javax.swing.JFrame {
             JLabel playerNameLabel = pus.getPlayerNameLabel();
             JLabel playerPositionLabel = pus.getPlayerPosistionLabel();
             JLabel playerBalanceLabel = pus.getPlayerBalanceLabel();
-            
+
             playerNameLabel.setText("Player: " + Integer.toString(p.getPlayerID()));
             playerPositionLabel.setText("Position: " + slots.get(p.getPosition()).getSlotName());
             playerBalanceLabel.setText("Balance: " + Integer.toString(p.getBalance()));
         }
         //message display
-        turnLabel.setText("Player" + turnHolder.getPlayerID() + "'s Turn");
+        this.displayMainMessage("Roll dice to move!");
+        this.displayTurnMessage("Player" + turnHolder.getPlayerID() + "'s Turn");
+        this.displaySecondMessage(" ");
+        this.displayMainButton("Roll Dice!!!");
+        this.displaySecondButton("Let's Trade");
     }
-    
+
     public void refreshView(ArrayList<Player> players, ArrayList<Slot> slots) {
         //clear all slots
         for (SlotUiSet sus : slotUiSets) {
@@ -1949,6 +1960,7 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel priceLabel8;
     private javax.swing.JLabel priceLabel9;
     private javax.swing.JButton secondButton;
+    private javax.swing.JLabel secondMessageLabel;
     private javax.swing.JPanel slot0Panel;
     private javax.swing.JPanel slot10Panel;
     private javax.swing.JPanel slot11Panel;
@@ -2001,20 +2013,30 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel turnLabel;
     // End of variables declaration//GEN-END:variables
 
-    void displayMainMessage(String s) {
-        mainMessageLabel.setText(s);
-    }
-
     void displayMainButton(String s) {
         mainButton.setText(s);
     }
 
     void displaySecondButton(String s) {
         secondButton.setText(s);
+
+        if (s == null) {
+            secondButton.setVisible(false);
+        } else {
+            secondButton.setVisible(true);
+        }
+    }
+
+    void displayMainMessage(String s) {
+        mainMessageLabel.setText(s);
+    }
+
+    void displaySecondMessage(String s) {
+        secondMessageLabel.setText(s);
     }
 
     void displayTurnMessage(String s) {
         turnLabel.setText(s);
     }
-    
+
 }
