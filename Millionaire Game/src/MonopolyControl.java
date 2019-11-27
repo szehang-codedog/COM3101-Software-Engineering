@@ -1,7 +1,5 @@
 
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,7 +26,8 @@ public class MonopolyControl {
     public void initGame() {
         model.loadData();
         view.initGame(model.getPlayers(), model.getSlots(), model.getTurnHolder());
-
+        view.initCheatPanel(model.getPlayers(), model.getSlots(), model.getTurnHolder(), model.getTurn());
+        turnStage = 0;
     }
 
     //0: wait for playerX roll dice
@@ -39,10 +38,22 @@ public class MonopolyControl {
     //31: dice rolled, slot has owner, player can pay rent, waiting for confirm turn end
     //32: dice rolled, slot has owner, player bankrupt, waiting for confirm turn end
     //999: dice rolled, reach goSlot, waiting for turn end
+    //-1: some one won, wait for reset game
     private int turnStage = 0;
 
     public void main() {
         switch (turnStage) {
+            case -1:
+                turnStage = 0;
+
+                this.initGame();
+
+                view.displayMainMessage("Roll dice to move!");
+                view.displayTurnMessage("Player" + model.getTurnHolder().getPlayerID() + "'s Turn");
+                view.displaySecondMessage(" ");
+                view.displayMainButton("Roll Dice!!!");
+                view.displaySecondButton("Let's Trade");
+                break;
             case 0:
                 //move turnHolder
                 int step = (int) (Math.random() * 10) + 1;
@@ -141,17 +152,36 @@ public class MonopolyControl {
                 while (nextPlayer == null) {
                     Player p = model.getPlayers().get(nextPlayerID);
                     if (p.isIsBankrupt()) {
-                        nextPlayerID++;
+                        nextPlayerID = (nextPlayerID + 1) % 4;
                     } else {
                         nextPlayer = p;
                         model.setTurnHolder(nextPlayer);
                     }
                 }
+
                 view.displayMainMessage("Roll dice to move!");
                 view.displayTurnMessage("Player" + model.getTurnHolder().getPlayerID() + "'s Turn");
                 view.displaySecondMessage(" ");
                 view.displayMainButton("Roll Dice!!!");
                 view.displaySecondButton("Let's Trade");
+
+                int alivePlayers = 0;
+                Player winner = null;
+                for (Player p : model.getPlayers()) {
+                    if (!p.isIsBankrupt()) {
+                        alivePlayers++;
+                        winner = p;
+                    }
+                }
+                if (alivePlayers <= 1 && winner != null) {
+                    turnStage = -1;
+                    view.displayMainMessage("Winner is Player: " + winner.getPlayerID());
+                    view.displayTurnMessage(" ");
+                    view.displaySecondMessage("with balance; $" + winner.getBalance());
+                    view.displayMainButton("Reset game");
+                    view.displaySecondButton(null);
+                }
+
                 break;
             default:
                 break;
@@ -216,6 +246,97 @@ public class MonopolyControl {
             return -1;
         }
 
+    }
+
+    public Slot requestSlot(int slotID) {
+        Slot s = model.getSlots().get(slotID);
+        Slot newS = new Slot(s.getSlotID(), s.getSlotName(), s.getSlotPrice(), s.getOwner());
+        return newS;
+    }
+
+    public Player requestPlayer(int playerID) {
+        Player p = model.getPlayers().get(playerID);
+        Player newP = new Player(p.getPlayerID(), p.getBalance(), p.isIsBankrupt(), p.getPosition(), p.getOwnedSlots());
+        return newP;
+    }
+
+    public int requestTurnHolderID() {
+        return model.getTurnHolder().getPlayerID();
+    }
+
+    void slotCheat(int slotID, int slotPrice, int slotOwnerID) {
+        Slot slot = model.getSlots().get(slotID);
+
+        //set new price to slot
+        slot.setSlotPrice(slotPrice);
+
+        Player oldOwner = slot.getOwner();
+        //remove slot from old owner's ownedSlots
+        if (oldOwner != null) {
+            Slot removeSlot = null;
+            for (Slot s : oldOwner.getOwnedSlots()) {
+                if (s.getSlotID() == slot.getSlotID()) {
+                    removeSlot = s;
+                }
+            }
+            oldOwner.removeOwnedSlot(removeSlot);
+        }
+        //set new owner //slotOwnerID == -1 -> newOwner = null
+        Player newOwner = null;
+        if (slotOwnerID != -1) {
+            for (Player p : model.getPlayers()) {
+                if (p.getPlayerID() == slotOwnerID) {
+                    newOwner = p;
+                }
+            }
+            //add to new owner's ownedSlots
+            newOwner.addOwnedSlot(slot);
+        }
+        slot.setOwner(newOwner);
+
+        view.refreshView(model.getPlayers(), model.getSlots());
+    }
+
+    void playerCheat(int playerID, int balance, boolean isBankrupt, int position, boolean isTurn) {
+        Player player = model.getPlayers().get(playerID);
+
+        //set player
+        player.setBalance(balance);
+        player.setIsBankrupt(isBankrupt);
+        player.setPosition(position);
+        if (isTurn) {
+            model.setTurnHolder(player);
+        }
+
+        if (model.getTurnHolder().isIsBankrupt()) {
+            int nextPlayerID = (model.getTurnHolder().getPlayerID() + 1) % 4;
+            Player nextPlayer = null;
+            while (nextPlayer == null) {
+                Player p = model.getPlayers().get(nextPlayerID);
+                if (p.isIsBankrupt()) {
+                    nextPlayerID = (nextPlayerID + 1) % 4;
+                } else {
+                    nextPlayer = p;
+                    model.setTurnHolder(nextPlayer);
+                }
+            }
+        }
+
+        //reset turnStage
+        turnStage = 0;
+
+        //reset view for next player to use
+        view.displayMainMessage("Roll dice to move!");
+        view.displayTurnMessage("Player" + model.getTurnHolder().getPlayerID() + "'s Turn");
+        view.displaySecondMessage(" ");
+        view.displayMainButton("Roll Dice!!!");
+        view.displaySecondButton("Let's Trade");
+
+        view.refreshView(model.getPlayers(), model.getSlots());
+    }
+
+    void resetGameRequest() {
+        this.initGame();
     }
 
 }

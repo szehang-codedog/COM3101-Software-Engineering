@@ -17,7 +17,15 @@ public class Player {
     private boolean isBankrupt;
     private int position;
     private ArrayList<Slot> ownedSlots;
-    
+
+    public Player(int playerID, int balance, boolean isBankrupt, int position, ArrayList<Slot> ownedSlots) {
+        this.playerID = playerID;
+        this.balance = balance;
+        this.isBankrupt = isBankrupt;
+        this.position = position;
+        this.ownedSlots = ownedSlots;
+    }
+        
     public Player(int id, int initialBalance, int initialPosition) {
         this.playerID = id;
         this.balance = initialBalance;
@@ -36,6 +44,8 @@ public class Player {
             s.setOwner(null);
         }
         ownedSlots = null;
+        
+        this.position = -1;
         
         return payedAmount;
     }
@@ -83,5 +93,13 @@ public class Player {
 
     public void setOwnedSlots(ArrayList<Slot> ownedSlots) {
         this.ownedSlots = ownedSlots;
+    }
+
+    void removeOwnedSlot(Slot removeSlot) {
+        this.ownedSlots.remove(removeSlot);
+    }
+
+    void addOwnedSlot(Slot slot) {
+        this.ownedSlots.add(slot);
     }
 }

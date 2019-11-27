@@ -239,6 +239,28 @@ public class MonopolyView extends javax.swing.JFrame {
         playerPositionLabel0 = new javax.swing.JLabel();
         playerBalanceLabel0 = new javax.swing.JLabel();
         testingPanel = new javax.swing.JPanel();
+        slotCheatPanel = new javax.swing.JPanel();
+        slotCheatSelecterComboBox = new javax.swing.JComboBox<>();
+        slotCheatPriceTextField = new javax.swing.JTextField();
+        slotCheatPlayerSelecterComboBox = new javax.swing.JComboBox<>();
+        slotCheatOwnerLabel = new javax.swing.JLabel();
+        slotCheatPriceLabel = new javax.swing.JLabel();
+        slotCheatButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        playerCheatPanel = new javax.swing.JPanel();
+        playerCheatPositionSelecterComboBox = new javax.swing.JComboBox<>();
+        playerCheatBalanceTextField = new javax.swing.JTextField();
+        playerCheatBankruptSelecterComboBox = new javax.swing.JComboBox<>();
+        playerCheatBankruptLabel = new javax.swing.JLabel();
+        playerCheatBalanceLabel = new javax.swing.JLabel();
+        playerCheatButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        playerCheatPositionLabel = new javax.swing.JLabel();
+        playerCheatSelecterComboBox = new javax.swing.JComboBox<>();
+        playerCheatTurnHolderLabel = new javax.swing.JLabel();
+        playerCheatTurnHolderComboBox = new javax.swing.JComboBox<>();
         menuBar = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         menuItem1 = new javax.swing.JMenuItem();
@@ -1528,22 +1550,213 @@ public class MonopolyView extends javax.swing.JFrame {
 
         tabbedPane.addTab("game board", gamePanel);
 
+        slotCheatPanel.setBackground(new java.awt.Color(204, 255, 204));
+        java.awt.GridBagLayout slotCheatPanelLayout = new java.awt.GridBagLayout();
+        slotCheatPanelLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        slotCheatPanelLayout.rowHeights = new int[] {0};
+        slotCheatPanel.setLayout(slotCheatPanelLayout);
+
+        slotCheatSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        slotCheatSelecterComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                slotCheatSelecterComboBoxItemStateChanged(evt);
+            }
+        });
+        slotCheatSelecterComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                slotCheatSelecterComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatSelecterComboBox, gridBagConstraints);
+
+        slotCheatPriceTextField.setText("Price");
+        slotCheatPriceTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                slotCheatPriceTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatPriceTextField, gridBagConstraints);
+
+        slotCheatPlayerSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatPlayerSelecterComboBox, gridBagConstraints);
+
+        slotCheatOwnerLabel.setText("Owner:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatOwnerLabel, gridBagConstraints);
+
+        slotCheatPriceLabel.setText("Price:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatPriceLabel, gridBagConstraints);
+
+        slotCheatButton.setText("Set");
+        slotCheatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                slotCheatButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(slotCheatButton, gridBagConstraints);
+
+        jLabel1.setFont(new java.awt.Font("微軟正黑體", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Slot Cheater:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(jLabel1, gridBagConstraints);
+
+        jLabel2.setText("    ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        slotCheatPanel.add(jLabel2, gridBagConstraints);
+
+        playerCheatPanel.setBackground(new java.awt.Color(204, 255, 204));
+        java.awt.GridBagLayout playerCheatPanelLayout = new java.awt.GridBagLayout();
+        playerCheatPanelLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        playerCheatPanelLayout.rowHeights = new int[] {0};
+        playerCheatPanel.setLayout(playerCheatPanelLayout);
+
+        playerCheatPositionSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        playerCheatPositionSelecterComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playerCheatPositionSelecterComboBoxItemStateChanged(evt);
+            }
+        });
+        playerCheatPositionSelecterComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerCheatPositionSelecterComboBoxActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 16;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatPositionSelecterComboBox, gridBagConstraints);
+
+        playerCheatBalanceTextField.setText("Balance");
+        playerCheatBalanceTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerCheatBalanceTextFieldActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatBalanceTextField, gridBagConstraints);
+
+        playerCheatBankruptSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 12;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatBankruptSelecterComboBox, gridBagConstraints);
+
+        playerCheatBankruptLabel.setText("Bankrup:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 10;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatBankruptLabel, gridBagConstraints);
+
+        playerCheatBalanceLabel.setText("Balance:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatBalanceLabel, gridBagConstraints);
+
+        playerCheatButton.setText("Set");
+        playerCheatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerCheatButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 22;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatButton, gridBagConstraints);
+
+        jLabel3.setFont(new java.awt.Font("微軟正黑體", 1, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Player Cheater:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(jLabel3, gridBagConstraints);
+
+        jLabel4.setText("    ");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(jLabel4, gridBagConstraints);
+
+        playerCheatPositionLabel.setText("Position:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 14;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatPositionLabel, gridBagConstraints);
+
+        playerCheatSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        playerCheatSelecterComboBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                playerCheatSelecterComboBoxItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatSelecterComboBox, gridBagConstraints);
+
+        playerCheatTurnHolderLabel.setText("Turn Holder:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 18;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatTurnHolderLabel, gridBagConstraints);
+
+        playerCheatTurnHolderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 20;
+        gridBagConstraints.gridy = 0;
+        playerCheatPanel.add(playerCheatTurnHolderComboBox, gridBagConstraints);
+
         javax.swing.GroupLayout testingPanelLayout = new javax.swing.GroupLayout(testingPanel);
         testingPanel.setLayout(testingPanelLayout);
         testingPanelLayout.setHorizontalGroup(
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1036, Short.MAX_VALUE)
+            .addGroup(testingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(slotCheatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(playerCheatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE))
+                .addContainerGap())
         );
         testingPanelLayout.setVerticalGroup(
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 710, Short.MAX_VALUE)
+            .addGroup(testingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(playerCheatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(slotCheatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(625, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("testing panel", testingPanel);
 
         menu.setText("Setting");
 
-        menuItem1.setText("jMenuItem1");
+        menuItem1.setText("reset game");
         menuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuItem1ActionPerformed(evt);
@@ -1571,7 +1784,7 @@ public class MonopolyView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem1ActionPerformed
-        // TODO add your handling code here:
+        control.resetGameRequest();
     }//GEN-LAST:event_menuItem1ActionPerformed
 
     private void mainButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainButtonActionPerformed
@@ -1581,6 +1794,116 @@ public class MonopolyView extends javax.swing.JFrame {
     private void secondButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secondButtonActionPerformed
         control.second();
     }//GEN-LAST:event_secondButtonActionPerformed
+
+    private void slotCheatSelecterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slotCheatSelecterComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slotCheatSelecterComboBoxActionPerformed
+
+    private void slotCheatSelecterComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_slotCheatSelecterComboBoxItemStateChanged
+        if (slotCheatSelecterComboBox.getSelectedItem() != null) {
+            Slot fakeSlot = control.requestSlot(Integer.parseInt(slotCheatSelecterComboBox.getSelectedItem().toString().split(" ")[0]));
+            slotCheatPriceTextField.setText(Integer.toString(fakeSlot.getSlotPrice()));
+            if (fakeSlot.getOwner() == null) {
+                slotCheatPlayerSelecterComboBox.setSelectedItem("no owner");
+            } else {
+                slotCheatPlayerSelecterComboBox.setSelectedItem("Player " + fakeSlot.getOwner().getPlayerID());
+            }
+            if (fakeSlot.getSlotPrice() <= 0) {
+                slotCheatPriceLabel.setText("Bonus:");
+                slotCheatPriceTextField.setText(Integer.toString(Math.abs(fakeSlot.getSlotPrice())));
+                slotCheatOwnerLabel.setVisible(false);
+                slotCheatPlayerSelecterComboBox.setVisible(false);
+            } else {
+                slotCheatPriceLabel.setText("Price:");
+                slotCheatOwnerLabel.setVisible(true);
+                slotCheatPlayerSelecterComboBox.setVisible(true);
+            }
+        }
+
+    }//GEN-LAST:event_slotCheatSelecterComboBoxItemStateChanged
+
+    private void slotCheatPriceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slotCheatPriceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_slotCheatPriceTextFieldActionPerformed
+
+    private void slotCheatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_slotCheatButtonActionPerformed
+        int slotID = Integer.parseInt(slotCheatSelecterComboBox.getSelectedItem().toString().split(" ")[0]);
+
+        int slotPrice;
+        if (slotCheatPriceLabel.getText().compareTo("Bonus:") == 0) {
+            slotPrice = 0 - Integer.parseInt(slotCheatPriceTextField.getText());
+        } else {
+            slotPrice = Integer.parseInt(slotCheatPriceTextField.getText());
+        }
+
+        String tmp = (String) slotCheatPlayerSelecterComboBox.getSelectedItem();
+        int slotOwnerID = -1;
+        if (tmp.compareTo("no owner") != 0) {
+            slotOwnerID = Integer.parseInt(tmp.split(" ")[1]);
+        }
+        control.slotCheat(slotID, slotPrice, slotOwnerID);
+    }//GEN-LAST:event_slotCheatButtonActionPerformed
+
+    private void playerCheatPositionSelecterComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playerCheatPositionSelecterComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerCheatPositionSelecterComboBoxItemStateChanged
+
+    private void playerCheatPositionSelecterComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerCheatPositionSelecterComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerCheatPositionSelecterComboBoxActionPerformed
+
+    private void playerCheatBalanceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerCheatBalanceTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_playerCheatBalanceTextFieldActionPerformed
+
+    private void playerCheatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerCheatButtonActionPerformed
+        int playerID = Integer.parseInt(playerCheatSelecterComboBox.getSelectedItem().toString().split(" ")[1]);
+        
+        int balance = Integer.parseInt(playerCheatBalanceTextField.getText());
+        
+        boolean isBankrupt;
+        String tmp = (String)playerCheatBankruptSelecterComboBox.getSelectedItem();
+        if(tmp.compareTo("YES") == 0) {
+            isBankrupt = true;
+        } else {
+            isBankrupt = false;
+        }
+        
+        int position = Integer.parseInt(playerCheatPositionSelecterComboBox.getSelectedItem().toString().split(" ")[0]);
+        
+        boolean isTurn;
+        tmp = (String)playerCheatTurnHolderComboBox.getSelectedItem();
+        if(tmp.compareTo("YES") == 0) {
+            isTurn = true;
+        } else {
+            isTurn = false;
+        }
+        
+        control.playerCheat(playerID, balance, isBankrupt, position, isTurn);
+    }//GEN-LAST:event_playerCheatButtonActionPerformed
+
+    private void playerCheatSelecterComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_playerCheatSelecterComboBoxItemStateChanged
+        if (playerCheatSelecterComboBox.getSelectedItem() != null) {
+            Player fakePlayer = control.requestPlayer(Integer.parseInt(playerCheatSelecterComboBox.getSelectedItem().toString().split(" ")[1]));
+            playerCheatBalanceTextField.setText(Integer.toString(fakePlayer.getBalance()));
+            if (fakePlayer.isIsBankrupt()) {
+                playerCheatBankruptSelecterComboBox.setSelectedItem("YES");
+            } else {
+                playerCheatBankruptSelecterComboBox.setSelectedItem("NO");
+            }
+            if (playerCheatPositionSelecterComboBox.getSelectedItem() != null) {
+                playerCheatPositionSelecterComboBox.setSelectedIndex(fakePlayer.getPosition());
+            }
+
+            if (fakePlayer.getPlayerID() == control.requestTurnHolderID()) {
+                playerCheatTurnHolderComboBox.setSelectedItem("YES");
+            } else {
+                playerCheatTurnHolderComboBox.setSelectedItem("NO");
+            }
+        }
+
+
+    }//GEN-LAST:event_playerCheatSelecterComboBoxItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -1623,6 +1946,40 @@ public class MonopolyView extends javax.swing.JFrame {
                 new MonopolyView().setVisible(true);
             }
         });
+    }
+
+    public void initCheatPanel(ArrayList<Player> players, ArrayList<Slot> slots, Player turnHolder, int turn) {
+        playerCheatSelecterComboBox.removeAllItems();
+        playerCheatPositionSelecterComboBox.removeAllItems();
+        playerCheatBankruptSelecterComboBox.removeAllItems();
+        playerCheatTurnHolderComboBox.removeAllItems();
+
+        playerCheatBankruptSelecterComboBox.addItem("YES");
+        playerCheatBankruptSelecterComboBox.addItem("NO");
+        playerCheatTurnHolderComboBox.addItem("YES");
+        playerCheatTurnHolderComboBox.addItem("NO");
+
+        slotCheatSelecterComboBox.removeAllItems();
+        slotCheatPlayerSelecterComboBox.removeAllItems();
+
+        slotCheatPlayerSelecterComboBox.addItem("no owner");
+
+        //player
+        ArrayList<String> playerOptions = new ArrayList<String>();
+        for (Player p : players) {
+            String option = "Player " + p.getPlayerID();
+            playerCheatSelecterComboBox.addItem(option);
+            slotCheatPlayerSelecterComboBox.addItem(option);
+        }
+
+        //slot
+        ArrayList<String> slotOptions = new ArrayList<String>();
+        for (Slot s : slots) {
+            String option = s.getSlotID() + " " + s.getSlotName();
+            playerCheatPositionSelecterComboBox.addItem(option);
+            slotCheatSelecterComboBox.addItem(option);
+        }
+
     }
 
     private void findAllPlayerUiSets() {
@@ -1835,7 +2192,24 @@ public class MonopolyView extends javax.swing.JFrame {
         //clear all slots
         for (SlotUiSet sus : slotUiSets) {
             sus.getSpaceLabel().setText(" ");
+            sus.getPriceLabel().setText(" ");
             sus.getOwnerLabel().setText("available");
+
+        }
+
+        for (Slot s : slots) {
+            SlotUiSet sus = slotUiSets.get(s.getSlotID());
+
+            if (s.getSlotPrice() <= 0) {//go slot
+                sus.getPanel().setBackground(java.awt.Color.PINK);
+
+                sus.getPriceLabel().setText("+$" + Integer.toString(Math.abs(s.getSlotPrice())));
+                sus.getOwnerLabel().setText("get bonus");
+            } else {//normal slot
+
+                sus.getPriceLabel().setText("$" + Integer.toString(s.getSlotPrice()));
+
+            }
         }
 
         //reprint player's information
@@ -1857,7 +2231,9 @@ public class MonopolyView extends javax.swing.JFrame {
         for (Player p : players) {
             PlayerUiSet pus = playerUiSets.get(p.getPlayerID());
             if (p.isIsBankrupt()) {
-                pus.getPlayerBalanceLabel().setText("Player: " + p.getPlayerID() + "(player already bankrupt)");
+                pus.getPlayerNameLabel().setText("Player: " + p.getPlayerID() + "(player already bankrupted)");
+                pus.getPlayerPosistionLabel().setText("---");
+                pus.getPlayerBalanceLabel().setText("BANKRUPTED");
             } else {
                 pus.getPlayerPosistionLabel().setText("Position: " + slots.get(p.getPosition()).getSlotName());
                 pus.getPlayerBalanceLabel().setText("Balance: " + Integer.toString(p.getBalance()));
@@ -1868,6 +2244,10 @@ public class MonopolyView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel centerPanel;
     private javax.swing.JPanel gamePanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton mainButton;
     private javax.swing.JLabel mainMessageLabel;
     private javax.swing.JPanel mapPanel;
@@ -1924,6 +2304,17 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel playerBalanceLabel1;
     private javax.swing.JLabel playerBalanceLabel2;
     private javax.swing.JLabel playerBalanceLabel3;
+    private javax.swing.JLabel playerCheatBalanceLabel;
+    private javax.swing.JTextField playerCheatBalanceTextField;
+    private javax.swing.JLabel playerCheatBankruptLabel;
+    private javax.swing.JComboBox<String> playerCheatBankruptSelecterComboBox;
+    private javax.swing.JButton playerCheatButton;
+    private javax.swing.JPanel playerCheatPanel;
+    private javax.swing.JLabel playerCheatPositionLabel;
+    private javax.swing.JComboBox<String> playerCheatPositionSelecterComboBox;
+    private javax.swing.JComboBox<String> playerCheatSelecterComboBox;
+    private javax.swing.JComboBox<String> playerCheatTurnHolderComboBox;
+    private javax.swing.JLabel playerCheatTurnHolderLabel;
     private javax.swing.JLabel playerNameLabel0;
     private javax.swing.JLabel playerNameLabel1;
     private javax.swing.JLabel playerNameLabel2;
@@ -1984,6 +2375,13 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JPanel slot7Panel;
     private javax.swing.JPanel slot8Panel;
     private javax.swing.JPanel slot9Panel;
+    private javax.swing.JButton slotCheatButton;
+    private javax.swing.JLabel slotCheatOwnerLabel;
+    private javax.swing.JPanel slotCheatPanel;
+    private javax.swing.JComboBox<String> slotCheatPlayerSelecterComboBox;
+    private javax.swing.JLabel slotCheatPriceLabel;
+    private javax.swing.JTextField slotCheatPriceTextField;
+    private javax.swing.JComboBox<String> slotCheatSelecterComboBox;
     private javax.swing.JLabel spaceLabel0;
     private javax.swing.JLabel spaceLabel1;
     private javax.swing.JLabel spaceLabel10;

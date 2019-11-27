@@ -8,10 +8,15 @@ public class MonopolyModel {
 
     private int turn;
     private Player turnHolder;
-    private ArrayList<Player> players = new ArrayList<>();
-    private ArrayList<Slot> slots = new ArrayList<>();
+    private ArrayList<Player> players;
+    private ArrayList<Slot> slots;
 
     public void loadData() {
+        turn = 0;
+        turnHolder = null;
+        players = new ArrayList<>();
+        slots = new ArrayList<>();
+        
         ///fake player data
         for (int i = 0; i < 4; i++) {
             players.add(new Player(i, 2000, 0));
