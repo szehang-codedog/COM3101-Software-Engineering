@@ -97,6 +97,21 @@ public class MonopolyView extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        tradeDialog = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        tradePlayerSelecterComboBox0 = new javax.swing.JComboBox<>();
+        tradeSlotSelecterComboBox0 = new javax.swing.JComboBox<>();
+        tradePlayerSelecterComboBox1 = new javax.swing.JComboBox<>();
+        tradeSlotSelecterComboBox1 = new javax.swing.JComboBox<>();
+        tradeBidTextField0 = new javax.swing.JTextField();
+        tradeBidTextField1 = new javax.swing.JTextField();
+        tradeButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        tradeBalanceLabel0 = new javax.swing.JLabel();
+        tradeBalanceLabel1 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         tabbedPane = new javax.swing.JTabbedPane();
         gamePanel = new javax.swing.JPanel();
         mapPanel = new javax.swing.JPanel();
@@ -265,7 +280,142 @@ public class MonopolyView extends javax.swing.JFrame {
         menu = new javax.swing.JMenu();
         menuItem1 = new javax.swing.JMenuItem();
 
+        tradeDialog.setMaximumSize(new java.awt.Dimension(500, 300));
+        tradeDialog.setMinimumSize(new java.awt.Dimension(500, 300));
+        tradeDialog.setPreferredSize(new java.awt.Dimension(500, 300));
+        tradeDialog.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                tradeDialogWindowClosed(evt);
+            }
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                tradeDialogWindowClosing(evt);
+            }
+        });
+        java.awt.GridBagLayout tradeDialogLayout = new java.awt.GridBagLayout();
+        tradeDialogLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0};
+        tradeDialogLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        tradeDialog.getContentPane().setLayout(tradeDialogLayout);
+
+        jLabel5.setText("<- bid ->");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        tradeDialog.getContentPane().add(jLabel5, gridBagConstraints);
+
+        tradePlayerSelecterComboBox0.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tradePlayerSelecterComboBox0.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tradePlayerSelecterComboBox0ItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        tradeDialog.getContentPane().add(tradePlayerSelecterComboBox0, gridBagConstraints);
+
+        tradeSlotSelecterComboBox0.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        tradeDialog.getContentPane().add(tradeSlotSelecterComboBox0, gridBagConstraints);
+
+        tradePlayerSelecterComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        tradePlayerSelecterComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                tradePlayerSelecterComboBox1ItemStateChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        tradeDialog.getContentPane().add(tradePlayerSelecterComboBox1, gridBagConstraints);
+
+        tradeSlotSelecterComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        tradeDialog.getContentPane().add(tradeSlotSelecterComboBox1, gridBagConstraints);
+
+        tradeBidTextField0.setText("jTextField1");
+        tradeBidTextField0.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tradeBidTextField0InputMethodTextChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        tradeDialog.getContentPane().add(tradeBidTextField0, gridBagConstraints);
+
+        tradeBidTextField1.setText("jTextField2");
+        tradeBidTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                tradeBidTextField1InputMethodTextChanged(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        tradeDialog.getContentPane().add(tradeBidTextField1, gridBagConstraints);
+
+        tradeButton.setText("Trade!");
+        tradeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tradeButtonActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 10;
+        tradeDialog.getContentPane().add(tradeButton, gridBagConstraints);
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Player");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        tradeDialog.getContentPane().add(jLabel6, gridBagConstraints);
+
+        tradeBalanceLabel0.setText("jLabel7");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        tradeDialog.getContentPane().add(tradeBalanceLabel0, gridBagConstraints);
+
+        tradeBalanceLabel1.setText("jLabel8");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 6;
+        tradeDialog.getContentPane().add(tradeBalanceLabel1, gridBagConstraints);
+
+        jLabel7.setFont(new java.awt.Font("微軟正黑體", 1, 36)); // NOI18N
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Trade");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        tradeDialog.getContentPane().add(jLabel7, gridBagConstraints);
+
+        jLabel8.setText("<- slot ->");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        tradeDialog.getContentPane().add(jLabel8, gridBagConstraints);
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("Balance");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        tradeDialog.getContentPane().add(jLabel9, gridBagConstraints);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1041, 769));
 
         mapPanel.setBackground(new java.awt.Color(102, 255, 204));
         java.awt.GridBagLayout jPanel24Layout = new java.awt.GridBagLayout();
@@ -1858,27 +2008,27 @@ public class MonopolyView extends javax.swing.JFrame {
 
     private void playerCheatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playerCheatButtonActionPerformed
         int playerID = Integer.parseInt(playerCheatSelecterComboBox.getSelectedItem().toString().split(" ")[1]);
-        
+
         int balance = Integer.parseInt(playerCheatBalanceTextField.getText());
-        
+
         boolean isBankrupt;
-        String tmp = (String)playerCheatBankruptSelecterComboBox.getSelectedItem();
-        if(tmp.compareTo("YES") == 0) {
+        String tmp = (String) playerCheatBankruptSelecterComboBox.getSelectedItem();
+        if (tmp.compareTo("YES") == 0) {
             isBankrupt = true;
         } else {
             isBankrupt = false;
         }
-        
+
         int position = Integer.parseInt(playerCheatPositionSelecterComboBox.getSelectedItem().toString().split(" ")[0]);
-        
+
         boolean isTurn;
-        tmp = (String)playerCheatTurnHolderComboBox.getSelectedItem();
-        if(tmp.compareTo("YES") == 0) {
+        tmp = (String) playerCheatTurnHolderComboBox.getSelectedItem();
+        if (tmp.compareTo("YES") == 0) {
             isTurn = true;
         } else {
             isTurn = false;
         }
-        
+
         control.playerCheat(playerID, balance, isBankrupt, position, isTurn);
     }//GEN-LAST:event_playerCheatButtonActionPerformed
 
@@ -1904,6 +2054,63 @@ public class MonopolyView extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_playerCheatSelecterComboBoxItemStateChanged
+
+    private void tradeDialogWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_tradeDialogWindowClosed
+        // TODO add your handling code here:
+        this.closeTradeDialog();
+    }//GEN-LAST:event_tradeDialogWindowClosed
+
+    private void tradeDialogWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_tradeDialogWindowClosing
+        // TODO add your handling code here:
+        this.closeTradeDialog();
+    }//GEN-LAST:event_tradeDialogWindowClosing
+
+    private void tradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tradeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tradeButtonActionPerformed
+
+    private void tradePlayerSelecterComboBox0ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tradePlayerSelecterComboBox0ItemStateChanged
+        // TODO add your handling code here:
+        if (tradePlayerSelecterComboBox0.getSelectedItem() != null) {
+            Player p = control.requestPlayer(Integer.parseInt(tradePlayerSelecterComboBox0.getSelectedItem().toString().split(" ")[1]));
+            tradeSlotSelecterComboBox0.removeAllItems();
+            tradeSlotSelecterComboBox0.addItem("                    N/A                    ");
+            for (Slot s : p.getOwnedSlots()) {
+                tradeSlotSelecterComboBox0.addItem(s.getSlotID() + " " + s.getSlotName() + ": $" + s.getSlotPrice());
+            }
+            tradeBalanceLabel0.setText("$" + p.getBalance());
+            tradeBidTextField0.setText("                    ");
+        }
+    }//GEN-LAST:event_tradePlayerSelecterComboBox0ItemStateChanged
+
+    private void tradePlayerSelecterComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tradePlayerSelecterComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        if (tradePlayerSelecterComboBox1.getSelectedItem() != null) {
+            Player p = control.requestPlayer(Integer.parseInt(tradePlayerSelecterComboBox1.getSelectedItem().toString().split(" ")[1]));
+            tradeSlotSelecterComboBox1.removeAllItems();
+            tradeSlotSelecterComboBox1.addItem("                    N/A                    ");
+            for (Slot s : p.getOwnedSlots()) {
+                tradeSlotSelecterComboBox1.addItem(s.getSlotID() + " " + s.getSlotName() + ": $" + s.getSlotPrice());
+            }
+            tradeBalanceLabel1.setText("$" + p.getBalance());
+            tradeBidTextField1.setText("                    ");
+        }
+    }//GEN-LAST:event_tradePlayerSelecterComboBox1ItemStateChanged
+
+    private void tradeBidTextField0InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tradeBidTextField0InputMethodTextChanged
+        // TODO add your handling code here:
+        if(Integer.parseInt(tradeBidTextField0.getText()) < 0) {
+            tradeBidTextField0.setText("0");
+        }
+        System.out.println(tradeBalanceLabel0.getText().split("$")[0]);
+        if(Integer.parseInt(tradeBidTextField0.getText()) > Integer.parseInt(tradeBalanceLabel0.getText().split("$")[0])) {
+            tradeBidTextField0.setText(tradeBalanceLabel0.getText().split("$")[0]);
+        }
+    }//GEN-LAST:event_tradeBidTextField0InputMethodTextChanged
+
+    private void tradeBidTextField1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tradeBidTextField1InputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tradeBidTextField1InputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -2248,6 +2455,11 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JButton mainButton;
     private javax.swing.JLabel mainMessageLabel;
     private javax.swing.JPanel mapPanel;
@@ -2408,6 +2620,16 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JPanel statusPanel;
     private javax.swing.JTabbedPane tabbedPane;
     private javax.swing.JPanel testingPanel;
+    private javax.swing.JLabel tradeBalanceLabel0;
+    private javax.swing.JLabel tradeBalanceLabel1;
+    private javax.swing.JTextField tradeBidTextField0;
+    private javax.swing.JTextField tradeBidTextField1;
+    private javax.swing.JButton tradeButton;
+    private javax.swing.JDialog tradeDialog;
+    private javax.swing.JComboBox<String> tradePlayerSelecterComboBox0;
+    private javax.swing.JComboBox<String> tradePlayerSelecterComboBox1;
+    private javax.swing.JComboBox<String> tradeSlotSelecterComboBox0;
+    private javax.swing.JComboBox<String> tradeSlotSelecterComboBox1;
     private javax.swing.JLabel turnLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -2437,4 +2659,42 @@ public class MonopolyView extends javax.swing.JFrame {
         turnLabel.setText(s);
     }
 
+    public void showTradeDialog(ArrayList<Player> players) {
+        tradeDialog.setLocationRelativeTo(this);
+        tradeDialog.setAlwaysOnTop(true);
+        tradeDialog.setVisible(true);
+        this.enableMainFrame(false);
+        System.out.println("op");
+
+        //initate dialog
+        tradePlayerSelecterComboBox0.removeAllItems();
+        tradePlayerSelecterComboBox1.removeAllItems();
+        tradeSlotSelecterComboBox0.removeAllItems();
+        tradeSlotSelecterComboBox1.removeAllItems();
+
+        Player turnHolder;
+        for (Player p : players) {
+            if (!p.isIsBankrupt()) {
+                if (p.getPlayerID() == control.requestTurnHolderID()) {
+                    turnHolder = p;
+                    tradePlayerSelecterComboBox0.addItem("Player " + p.getPlayerID());
+                } else {
+                    tradePlayerSelecterComboBox1.addItem("Player " + p.getPlayerID());
+                }
+            }
+        }
+    }
+
+    public void closeTradeDialog() {
+        tradeDialog.dispose();
+        tradeDialog.setVisible(false);
+        this.enableMainFrame(true);
+    }
+
+    public void enableMainFrame(boolean enable) {
+        mainButton.setEnabled(enable);
+        secondButton.setEnabled(enable);
+        playerCheatButton.setEnabled(enable);
+        slotCheatButton.setEnabled(enable);
+    }
 }

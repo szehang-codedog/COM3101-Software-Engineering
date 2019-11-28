@@ -196,6 +196,7 @@ public class MonopolyControl {
         switch (turnStage) {
             case 0:
                 //trade()
+                view.showTradeDialog(model.getPlayers());
                 break;
             case 1:
                 //not buy slot
@@ -337,6 +338,53 @@ public class MonopolyControl {
 
     void resetGameRequest() {
         this.initGame();
+    }
+
+    void trade(int playerID0, int slotID0, int dib0, int playerID1, int slotID1, int dib1) {
+        Player p0 = null;
+        Player p1 = null;
+        for (Player p : model.getPlayers()) {
+            if (p.getPlayerID() == playerID0) {
+                p0 = p;
+            }
+            if (p.getPlayerID() == playerID1) {
+                p1 = p;
+            }
+        }
+        Slot s0 = null;
+        Slot s1 = null;
+        if (slotID0 >= 0) {
+            for (Slot s : model.getSlots()) {
+                if (s.getSlotID() == slotID0) {
+                    s0 = s;
+
+                    p0.removeOwnedSlot(s0);
+                    s0.setOwner(p1);
+                    p1.addOwnedSlot(s0);
+                }
+            }
+        }
+        if (slotID1 >= 0) {
+            for (Slot s : model.getSlots()) {
+                if (s.getSlotID() == slotID1) {
+                    s1 = s;
+
+                    p1.removeOwnedSlot(s1);
+                    s1.setOwner(p0);
+                    p0.addOwnedSlot(s1);
+                }
+            }
+        }
+        
+        if(dib0 >=0) {
+            p0.setBalance(p0.getBalance() - dib0);
+            p1.setBalance(p1.getBalance() + dib0);
+        }
+        if(dib1 >=0) {
+            p1.setBalance(p1.getBalance() - dib0);
+            p0.setBalance(p0.getBalance() + dib0);
+        }
+
     }
 
 }
