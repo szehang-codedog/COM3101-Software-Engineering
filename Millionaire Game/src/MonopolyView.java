@@ -335,11 +335,24 @@ public class MonopolyView extends javax.swing.JFrame {
         tradeDialog.getContentPane().add(tradeSlotSelecterComboBox1, gridBagConstraints);
 
         tradeBidTextField0.setText("jTextField1");
+        tradeBidTextField0.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tradeBidTextField0FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tradeBidTextField0FocusLost(evt);
+            }
+        });
         tradeBidTextField0.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tradeBidTextField0InputMethodTextChanged(evt);
+            }
+        });
+        tradeBidTextField0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tradeBidTextField0ActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -348,6 +361,14 @@ public class MonopolyView extends javax.swing.JFrame {
         tradeDialog.getContentPane().add(tradeBidTextField0, gridBagConstraints);
 
         tradeBidTextField1.setText("jTextField2");
+        tradeBidTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tradeBidTextField1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tradeBidTextField1FocusLost(evt);
+            }
+        });
         tradeBidTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -2065,6 +2086,42 @@ public class MonopolyView extends javax.swing.JFrame {
 
     private void tradeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tradeButtonActionPerformed
         // TODO add your handling code here:
+        int pID0 = -1;
+        int sID0 = -1;
+        int dib0 = -1;
+
+        int pID1 = -1;
+        int sID1 = -1;
+        int dib1 = -1;
+
+        if (tradePlayerSelecterComboBox0.getSelectedItem() != null) {
+            pID0 = Integer.parseInt(tradePlayerSelecterComboBox0.getSelectedItem().toString().split(" ")[1]);
+        }
+        if (tradeSlotSelecterComboBox0.getSelectedItem() != null) {
+            if (!tradeSlotSelecterComboBox0.getSelectedItem().toString().equals("                    N/A                    ")) {
+                sID0 = Integer.parseInt(tradeSlotSelecterComboBox0.getSelectedItem().toString().split(" ")[0]);
+            }
+        }
+        if (!tradeBidTextField0.getText().trim().equals("")) {
+            dib0 = Integer.parseInt(tradeBidTextField0.getText().trim());
+            //System.out.println("dib0 " + dib0);
+        }
+
+        if (tradePlayerSelecterComboBox1.getSelectedItem() != null) {
+            pID1 = Integer.parseInt(tradePlayerSelecterComboBox1.getSelectedItem().toString().split(" ")[1]);
+        }
+        if (tradeSlotSelecterComboBox1.getSelectedItem() != null) {
+            if (!tradeSlotSelecterComboBox1.getSelectedItem().toString().equals("                    N/A                    ")) {
+                sID1 = Integer.parseInt(tradeSlotSelecterComboBox1.getSelectedItem().toString().split(" ")[0]);
+            }
+        }
+        if (!tradeBidTextField1.getText().trim().equals("")) {
+            dib1 = Integer.parseInt(tradeBidTextField1.getText().trim());
+            //System.out.println("dib1 " + dib1);
+        }
+
+        control.trade(pID0, sID0, dib0, pID1, sID1, dib1);
+        this.closeTradeDialog();
     }//GEN-LAST:event_tradeButtonActionPerformed
 
     private void tradePlayerSelecterComboBox0ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_tradePlayerSelecterComboBox0ItemStateChanged
@@ -2097,18 +2154,62 @@ public class MonopolyView extends javax.swing.JFrame {
 
     private void tradeBidTextField0InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tradeBidTextField0InputMethodTextChanged
         // TODO add your handling code here:
-        if(Integer.parseInt(tradeBidTextField0.getText()) < 0) {
-            tradeBidTextField0.setText("0");
-        }
-        //System.out.println(tradeBalanceLabel0.getText().split("$")[0]);
-        if(Integer.parseInt(tradeBidTextField0.getText()) > Integer.parseInt(tradeBalanceLabel0.getText().split("$")[0])) {
-            tradeBidTextField0.setText(tradeBalanceLabel0.getText().split("$")[0]);
-        }
+
     }//GEN-LAST:event_tradeBidTextField0InputMethodTextChanged
 
     private void tradeBidTextField1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tradeBidTextField1InputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_tradeBidTextField1InputMethodTextChanged
+
+    private void tradeBidTextField0FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tradeBidTextField0FocusGained
+        // TODO add your handling code here:
+        if (tradeBidTextField0.getText().equals("                    ")) {
+            tradeBidTextField0.setText("");
+        }
+    }//GEN-LAST:event_tradeBidTextField0FocusGained
+
+    private void tradeBidTextField0FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tradeBidTextField0FocusLost
+        // TODO add your handling code here:
+        if (!tradeBidTextField0.getText().trim().equals("")) {
+            try {
+                if (Integer.parseInt(tradeBidTextField0.getText()) < 0) {
+                    tradeBidTextField0.setText("0");
+                }
+                if (Integer.parseInt(tradeBidTextField0.getText()) > Integer.parseInt(tradeBalanceLabel0.getText().substring(1))) {
+                    tradeBidTextField0.setText(tradeBalanceLabel0.getText().substring(1));
+                }
+            } catch (NumberFormatException e) {
+                tradeBidTextField0.setText("0");
+            }
+        }
+    }//GEN-LAST:event_tradeBidTextField0FocusLost
+
+    private void tradeBidTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tradeBidTextField1FocusGained
+        // TODO add your handling code here:
+        if (tradeBidTextField1.getText().equals("                    ")) {
+            tradeBidTextField1.setText("");
+        }
+    }//GEN-LAST:event_tradeBidTextField1FocusGained
+
+    private void tradeBidTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tradeBidTextField1FocusLost
+        // TODO add your handling code here:
+        if (!tradeBidTextField1.getText().trim().equals("")) {
+            try {
+                if (Integer.parseInt(tradeBidTextField1.getText()) < 0) {
+                    tradeBidTextField1.setText("0");
+                }
+                if (Integer.parseInt(tradeBidTextField1.getText()) > Integer.parseInt(tradeBalanceLabel1.getText().substring(1))) {
+                    tradeBidTextField1.setText(tradeBalanceLabel1.getText().substring(1));
+                }
+            } catch (NumberFormatException e) {
+                tradeBidTextField1.setText("0");
+            }
+        }
+    }//GEN-LAST:event_tradeBidTextField1FocusLost
+
+    private void tradeBidTextField0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tradeBidTextField0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tradeBidTextField0ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -20,5 +20,12 @@ public class MonopolyMain {
         
         control.initGame();
         view.setVisible(true);
+        
+        //debug
+        /*
+        for(Slot s : model.getSlots()) {
+            s.setOwner(model.getPlayers().get(2));
+        }
+        */
     }
 }

@@ -35,6 +35,7 @@ public class MonopolyControl {
     //11: buy is selected, wait for comfirm turn end
     //12: not but is selected, wait for comfirm turn end
     //2: dice rolled, slot is available, playerX have not enought money to buy, waiting for turn end
+    //22: dice rolled, turnHolder's, waiting for turn end
     //31: dice rolled, slot has owner, player can pay rent, waiting for confirm turn end
     //32: dice rolled, slot has owner, player bankrupt, waiting for confirm turn end
     //999: dice rolled, reach goSlot, waiting for turn end
@@ -111,15 +112,23 @@ public class MonopolyControl {
                             view.displaySecondButton(null);
                         }
                     } else {
-                        int payedAmount = payRent();
-                        if (payedAmount == -1) {//debtor can pay
-                            turnStage = 31;
-                            view.displaySecondMessage("You payed $" + checkLocationRent() + " to player " + checkLocationOwner().getPlayerID());
-                            view.displayMainButton("Turn End!");
-                            view.displaySecondButton(null);
-                        } else {//debtor bankruot
-                            turnStage = 32;
-                            view.displaySecondMessage("You are bankrupted, you payed $" + payedAmount + " to player " + checkLocationOwner().getPlayerID());
+                        Player slotOwner = checkLocationOwner();
+                        if (slotOwner != model.getTurnHolder()) {
+                            int payedAmount = payRent();
+                            if (payedAmount == -1) {//debtor can pay
+                                turnStage = 31;
+                                view.displaySecondMessage("You payed $" + checkLocationRent() + " to player " + slotOwner.getPlayerID());
+                                view.displayMainButton("Turn End!");
+                                view.displaySecondButton(null);
+                            } else {//debtor bankruot
+                                turnStage = 32;
+                                view.displaySecondMessage("You are bankrupted, you payed $" + payedAmount + " to player " + slotOwner.getPlayerID());
+                                view.displayMainButton("Turn End!");
+                                view.displaySecondButton(null);
+                            }
+                        } else {
+                            turnStage = 22;
+                            view.displaySecondMessage("The slot is yours already");
                             view.displayMainButton("Turn End!");
                             view.displaySecondButton(null);
                         }
@@ -142,6 +151,7 @@ public class MonopolyControl {
             case 11:
             case 12:
             case 2:
+            case 22:
             case 31:
             case 32:
             case 999:
@@ -375,16 +385,17 @@ public class MonopolyControl {
                 }
             }
         }
-        
-        if(dib0 >=0) {
+
+        if (dib0 >= 0) {
             p0.setBalance(p0.getBalance() - dib0);
             p1.setBalance(p1.getBalance() + dib0);
         }
-        if(dib1 >=0) {
-            p1.setBalance(p1.getBalance() - dib0);
-            p0.setBalance(p0.getBalance() + dib0);
+        if (dib1 >= 0) {
+            p1.setBalance(p1.getBalance() - dib1);
+            p0.setBalance(p0.getBalance() + dib1);
         }
-
+        
+        view.refreshView(model.getPlayers(), model.getSlots());
     }
 
 }

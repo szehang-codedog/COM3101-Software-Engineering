@@ -36,7 +36,7 @@ public class MonopolyModel {
                 int price = Integer.parseInt(line[2]);
 
                 Slot slot = new Slot(id, name, price);
-
+                
                 slots.add(slot);
 
                 //System.out.println(slot.getSlotID() + " " + slot.getSlotName() + " " + slot.getSlotPrice());
