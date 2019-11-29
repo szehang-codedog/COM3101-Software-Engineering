@@ -76,7 +76,7 @@ public class MonopolyControl {
                         }
                         if (tmpPosition == goSlot.getSlotID()) {
                             model.getTurnHolder().setBalance(model.getTurnHolder().getBalance() + bonus);
-                            System.out.println(model.getTurnHolder().getPlayerID() + "get bouns");
+                            //System.out.println(model.getTurnHolder().getPlayerID() + "get bouns");
                         }
                     }
 
@@ -188,7 +188,7 @@ public class MonopolyControl {
         }
 
         //refreshView
-        System.out.println("yoooo");
+        //System.out.println("refresh");
         view.refreshView(model.getPlayers(), model.getSlots());
     }
 

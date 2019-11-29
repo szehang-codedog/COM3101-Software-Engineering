@@ -39,11 +39,11 @@ public class MonopolyModel {
 
                 slots.add(slot);
 
-                System.out.println(slot.getSlotID() + " " + slot.getSlotName() + " " + slot.getSlotPrice());
+                //System.out.println(slot.getSlotID() + " " + slot.getSlotName() + " " + slot.getSlotPrice());
             }
             inputFile.close();
         } catch (FileNotFoundException err) {
-            System.out.println("File not found");
+            //System.out.println("File not found");
         }
     }
 

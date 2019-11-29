@@ -280,9 +280,7 @@ public class MonopolyView extends javax.swing.JFrame {
         menu = new javax.swing.JMenu();
         menuItem1 = new javax.swing.JMenuItem();
 
-        tradeDialog.setMaximumSize(new java.awt.Dimension(500, 300));
         tradeDialog.setMinimumSize(new java.awt.Dimension(500, 300));
-        tradeDialog.setPreferredSize(new java.awt.Dimension(500, 300));
         tradeDialog.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 tradeDialogWindowClosed(evt);
@@ -2102,7 +2100,7 @@ public class MonopolyView extends javax.swing.JFrame {
         if(Integer.parseInt(tradeBidTextField0.getText()) < 0) {
             tradeBidTextField0.setText("0");
         }
-        System.out.println(tradeBalanceLabel0.getText().split("$")[0]);
+        //System.out.println(tradeBalanceLabel0.getText().split("$")[0]);
         if(Integer.parseInt(tradeBidTextField0.getText()) > Integer.parseInt(tradeBalanceLabel0.getText().split("$")[0])) {
             tradeBidTextField0.setText(tradeBalanceLabel0.getText().split("$")[0]);
         }
@@ -2664,7 +2662,7 @@ public class MonopolyView extends javax.swing.JFrame {
         tradeDialog.setAlwaysOnTop(true);
         tradeDialog.setVisible(true);
         this.enableMainFrame(false);
-        System.out.println("op");
+        //System.out.println("open dailog");
 
         //initate dialog
         tradePlayerSelecterComboBox0.removeAllItems();
