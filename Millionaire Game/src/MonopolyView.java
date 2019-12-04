@@ -259,16 +259,21 @@ public class MonopolyView extends javax.swing.JFrame {
         slotCheatPriceTextField = new javax.swing.JTextField();
         slotCheatPlayerSelecterComboBox = new javax.swing.JComboBox<>();
         slotCheatOwnerLabel = new javax.swing.JLabel();
-        slotCheatPriceLabel = new javax.swing.JLabel();
+        slotCheatSlotLabel = new javax.swing.JLabel();
         slotCheatButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        slotCheatPriceLabel = new javax.swing.JLabel();
+        shotCheaterDescriptionLabel1 = new javax.swing.JLabel();
+        shotCheaterDescriptionLabel2 = new javax.swing.JLabel();
+        shotCheaterDescriptionLabel3 = new javax.swing.JLabel();
+        shotCheaterDescriptionLabel4 = new javax.swing.JLabel();
         playerCheatPanel = new javax.swing.JPanel();
         playerCheatPositionSelecterComboBox = new javax.swing.JComboBox<>();
         playerCheatBalanceTextField = new javax.swing.JTextField();
         playerCheatBankruptSelecterComboBox = new javax.swing.JComboBox<>();
         playerCheatBankruptLabel = new javax.swing.JLabel();
-        playerCheatBalanceLabel = new javax.swing.JLabel();
+        playerCheatPlayerLabel = new javax.swing.JLabel();
         playerCheatButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -276,6 +281,13 @@ public class MonopolyView extends javax.swing.JFrame {
         playerCheatSelecterComboBox = new javax.swing.JComboBox<>();
         playerCheatTurnHolderLabel = new javax.swing.JLabel();
         playerCheatTurnHolderComboBox = new javax.swing.JComboBox<>();
+        playerCheaterDescriptionLabel1 = new javax.swing.JLabel();
+        playerCheaterDescriptionLabel2 = new javax.swing.JLabel();
+        playerCheaterDescriptionLabel3 = new javax.swing.JLabel();
+        playerCheaterDescriptionLabel4 = new javax.swing.JLabel();
+        playerCheaterDescriptionLabel5 = new javax.swing.JLabel();
+        playerCheatBalanceLabel1 = new javax.swing.JLabel();
+        playerCheaterDescriptionLabel6 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menu = new javax.swing.JMenu();
         menuItem1 = new javax.swing.JMenuItem();
@@ -344,10 +356,10 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         tradeBidTextField0.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tradeBidTextField0InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tradeBidTextField0.addActionListener(new java.awt.event.ActionListener() {
@@ -370,10 +382,10 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         tradeBidTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tradeBidTextField1InputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -453,7 +465,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot0Panel.add(nameLabel0, gridBagConstraints);
@@ -463,6 +475,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 130;
         gridBagConstraints.ipady = 9;
         slot0Panel.add(spaceLabel0, gridBagConstraints);
@@ -472,6 +485,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 130;
         gridBagConstraints.ipady = 9;
         slot0Panel.add(priceLabel0, gridBagConstraints);
@@ -481,6 +495,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 130;
         gridBagConstraints.ipady = 9;
         slot0Panel.add(ownerLabel0, gridBagConstraints);
@@ -500,15 +515,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel22.setText("nameLabel22");
         nameLabel22.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot22Panel.add(nameLabel22, gridBagConstraints);
 
         spaceLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel22.setText("jLabel86");
+        spaceLabel22.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot22Panel.add(spaceLabel22, gridBagConstraints);
@@ -518,15 +536,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot22Panel.add(priceLabel22, gridBagConstraints);
 
         ownerLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel22.setText("jLabel88");
+        ownerLabel22.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot22Panel.add(ownerLabel22, gridBagConstraints);
@@ -546,15 +567,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot1Panel.add(nameLabel1, gridBagConstraints);
 
         spaceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel1.setText("jLabel2");
+        spaceLabel1.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot1Panel.add(spaceLabel1, gridBagConstraints);
@@ -564,15 +588,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot1Panel.add(priceLabel1, gridBagConstraints);
 
         ownerLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel1.setText("jLabel4");
+        ownerLabel1.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot1Panel.add(ownerLabel1, gridBagConstraints);
@@ -590,15 +617,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel21.setText("nameLabel21");
         nameLabel21.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot21Panel.add(nameLabel21, gridBagConstraints);
 
         spaceLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel21.setText("jLabel82");
+        spaceLabel21.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot21Panel.add(spaceLabel21, gridBagConstraints);
@@ -608,15 +638,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot21Panel.add(priceLabel21, gridBagConstraints);
 
         ownerLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel21.setText("jLabel84");
+        ownerLabel21.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot21Panel.add(ownerLabel21, gridBagConstraints);
@@ -631,9 +664,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         ownerLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel20.setText("jLabel80");
+        ownerLabel20.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot20Panel.add(ownerLabel20, gridBagConstraints);
@@ -643,15 +678,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot20Panel.add(priceLabel20, gridBagConstraints);
 
         spaceLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel20.setText("jLabel78");
+        spaceLabel20.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot20Panel.add(spaceLabel20, gridBagConstraints);
@@ -661,6 +699,7 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel20.setText("nameLabel20");
         nameLabel20.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot20Panel.add(nameLabel20, gridBagConstraints);
@@ -678,15 +717,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel19.setText("nameLabel19");
         nameLabel19.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot19Panel.add(nameLabel19, gridBagConstraints);
 
         spaceLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel19.setText("jLabel74");
+        spaceLabel19.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot19Panel.add(spaceLabel19, gridBagConstraints);
@@ -696,15 +738,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot19Panel.add(priceLabel19, gridBagConstraints);
 
         ownerLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel19.setText("jLabel76");
+        ownerLabel19.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot19Panel.add(ownerLabel19, gridBagConstraints);
@@ -722,15 +767,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel10.setText("nameLabel10");
         nameLabel10.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot10Panel.add(nameLabel10, gridBagConstraints);
 
         spaceLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel10.setText("jLabel38");
+        spaceLabel10.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot10Panel.add(spaceLabel10, gridBagConstraints);
@@ -740,15 +788,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot10Panel.add(priceLabel10, gridBagConstraints);
 
         ownerLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel10.setText("jLabel40");
+        ownerLabel10.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot10Panel.add(ownerLabel10, gridBagConstraints);
@@ -763,9 +814,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         spaceLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel9.setText("jLabel34");
+        spaceLabel9.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot9Panel.add(spaceLabel9, gridBagConstraints);
@@ -777,6 +830,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot9Panel.add(nameLabel9, gridBagConstraints);
@@ -786,15 +840,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot9Panel.add(priceLabel9, gridBagConstraints);
 
         ownerLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel9.setText("jLabel36");
+        ownerLabel9.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot9Panel.add(ownerLabel9, gridBagConstraints);
@@ -812,15 +869,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel8.setText("nameLabel8");
         nameLabel8.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot8Panel.add(nameLabel8, gridBagConstraints);
 
         spaceLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel8.setText("jLabel30");
+        spaceLabel8.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot8Panel.add(spaceLabel8, gridBagConstraints);
@@ -830,15 +890,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot8Panel.add(priceLabel8, gridBagConstraints);
 
         ownerLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel8.setText("jLabel32");
+        ownerLabel8.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot8Panel.add(ownerLabel8, gridBagConstraints);
@@ -856,15 +919,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel18.setText("nameLabel18");
         nameLabel18.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot18Panel.add(nameLabel18, gridBagConstraints);
 
         spaceLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel18.setText("jLabel70");
+        spaceLabel18.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot18Panel.add(spaceLabel18, gridBagConstraints);
@@ -874,15 +940,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot18Panel.add(priceLabel18, gridBagConstraints);
 
         ownerLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel18.setText("jLabel72");
+        ownerLabel18.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot18Panel.add(ownerLabel18, gridBagConstraints);
@@ -897,9 +966,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         ownerLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel17.setText("jLabel68");
+        ownerLabel17.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot17Panel.add(ownerLabel17, gridBagConstraints);
@@ -909,15 +980,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot17Panel.add(priceLabel17, gridBagConstraints);
 
         spaceLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel17.setText("jLabel66");
+        spaceLabel17.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot17Panel.add(spaceLabel17, gridBagConstraints);
@@ -927,6 +1001,7 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel17.setText("nameLabel17");
         nameLabel17.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot17Panel.add(nameLabel17, gridBagConstraints);
@@ -1011,15 +1086,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel13.setText("nameLabel13");
         nameLabel13.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot13Panel.add(nameLabel13, gridBagConstraints);
 
         spaceLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel13.setText("jLabel50");
+        spaceLabel13.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot13Panel.add(spaceLabel13, gridBagConstraints);
@@ -1029,15 +1107,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot13Panel.add(priceLabel13, gridBagConstraints);
 
         ownerLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel13.setText("jLabel52");
+        ownerLabel13.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot13Panel.add(ownerLabel13, gridBagConstraints);
@@ -1052,9 +1133,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         ownerLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel12.setText("jLabel48");
+        ownerLabel12.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot12Panel.add(ownerLabel12, gridBagConstraints);
@@ -1064,15 +1147,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot12Panel.add(priceLabel12, gridBagConstraints);
 
         spaceLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel12.setText("jLabel46");
+        spaceLabel12.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot12Panel.add(spaceLabel12, gridBagConstraints);
@@ -1084,6 +1170,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot12Panel.add(nameLabel12, gridBagConstraints);
@@ -1101,15 +1188,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel11.setText("nameLabel11");
         nameLabel11.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot11Panel.add(nameLabel11, gridBagConstraints);
 
         spaceLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel11.setText("jLabel42");
+        spaceLabel11.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot11Panel.add(spaceLabel11, gridBagConstraints);
@@ -1119,15 +1209,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot11Panel.add(priceLabel11, gridBagConstraints);
 
         ownerLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel11.setText("jLabel44");
+        ownerLabel11.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot11Panel.add(ownerLabel11, gridBagConstraints);
@@ -1142,9 +1235,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         ownerLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel16.setText("jLabel64");
+        ownerLabel16.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot16Panel.add(ownerLabel16, gridBagConstraints);
@@ -1154,15 +1249,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot16Panel.add(priceLabel16, gridBagConstraints);
 
         spaceLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel16.setText("jLabel62");
+        spaceLabel16.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot16Panel.add(spaceLabel16, gridBagConstraints);
@@ -1172,6 +1270,7 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel16.setText("nameLabel16");
         nameLabel16.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot16Panel.add(nameLabel16, gridBagConstraints);
@@ -1189,15 +1288,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel2.setText("nameLabel2");
         nameLabel2.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot2Panel.add(nameLabel2, gridBagConstraints);
 
         spaceLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel2.setText("jLabel6");
+        spaceLabel2.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot2Panel.add(spaceLabel2, gridBagConstraints);
@@ -1207,15 +1309,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot2Panel.add(priceLabel2, gridBagConstraints);
 
         ownerLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel2.setText("jLabel8");
+        ownerLabel2.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot2Panel.add(ownerLabel2, gridBagConstraints);
@@ -1233,15 +1338,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel14.setText("nameLabel14");
         nameLabel14.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot14Panel.add(nameLabel14, gridBagConstraints);
 
         spaceLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel14.setText("jLabel54");
+        spaceLabel14.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot14Panel.add(spaceLabel14, gridBagConstraints);
@@ -1251,15 +1359,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot14Panel.add(priceLabel14, gridBagConstraints);
 
         ownerLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel14.setText("jLabel56");
+        ownerLabel14.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot14Panel.add(ownerLabel14, gridBagConstraints);
@@ -1277,15 +1388,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel15.setText("nameLabel15");
         nameLabel15.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot15Panel.add(nameLabel15, gridBagConstraints);
 
         spaceLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel15.setText("jLabel58");
+        spaceLabel15.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot15Panel.add(spaceLabel15, gridBagConstraints);
@@ -1295,15 +1409,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot15Panel.add(priceLabel15, gridBagConstraints);
 
         ownerLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel15.setText("jLabel60");
+        ownerLabel15.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot15Panel.add(ownerLabel15, gridBagConstraints);
@@ -1328,9 +1445,11 @@ public class MonopolyView extends javax.swing.JFrame {
 
         spaceLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel3.setText("jLabel10");
+        spaceLabel3.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot3Panel.add(spaceLabel3, gridBagConstraints);
@@ -1340,15 +1459,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot3Panel.add(priceLabel3, gridBagConstraints);
 
         ownerLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel3.setText("jLabel12");
+        ownerLabel3.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot3Panel.add(ownerLabel3, gridBagConstraints);
@@ -1366,15 +1488,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel4.setText("nameLabel4");
         nameLabel4.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot4Panel.add(nameLabel4, gridBagConstraints);
 
         spaceLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel4.setText("jLabel14");
+        spaceLabel4.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot4Panel.add(spaceLabel4, gridBagConstraints);
@@ -1384,15 +1509,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot4Panel.add(priceLabel4, gridBagConstraints);
 
         ownerLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel4.setText("jLabel16");
+        ownerLabel4.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot4Panel.add(ownerLabel4, gridBagConstraints);
@@ -1410,15 +1538,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel5.setText("nameLabel5");
         nameLabel5.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot5Panel.add(nameLabel5, gridBagConstraints);
 
         spaceLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel5.setText("jLabel18");
+        spaceLabel5.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot5Panel.add(spaceLabel5, gridBagConstraints);
@@ -1428,15 +1559,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot5Panel.add(priceLabel5, gridBagConstraints);
 
         ownerLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel5.setText("jLabel20");
+        ownerLabel5.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot5Panel.add(ownerLabel5, gridBagConstraints);
@@ -1454,15 +1588,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel6.setText("nameLabel6");
         nameLabel6.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot6Panel.add(nameLabel6, gridBagConstraints);
 
         spaceLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel6.setText("jLabel22");
+        spaceLabel6.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot6Panel.add(spaceLabel6, gridBagConstraints);
@@ -1472,15 +1609,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot6Panel.add(priceLabel6, gridBagConstraints);
 
         ownerLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel6.setText("jLabel24");
+        ownerLabel6.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot6Panel.add(ownerLabel6, gridBagConstraints);
@@ -1498,15 +1638,18 @@ public class MonopolyView extends javax.swing.JFrame {
         nameLabel7.setText("nameLabel7");
         nameLabel7.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot7Panel.add(nameLabel7, gridBagConstraints);
 
         spaceLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         spaceLabel7.setText("jLabel26");
+        spaceLabel7.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot7Panel.add(spaceLabel7, gridBagConstraints);
@@ -1516,15 +1659,18 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot7Panel.add(priceLabel7, gridBagConstraints);
 
         ownerLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ownerLabel7.setText("jLabel28");
+        ownerLabel7.setOpaque(true);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 25;
         gridBagConstraints.ipady = 9;
         slot7Panel.add(ownerLabel7, gridBagConstraints);
@@ -1722,7 +1868,7 @@ public class MonopolyView extends javax.swing.JFrame {
         slotCheatPanel.setBackground(new java.awt.Color(204, 255, 204));
         java.awt.GridBagLayout slotCheatPanelLayout = new java.awt.GridBagLayout();
         slotCheatPanelLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        slotCheatPanelLayout.rowHeights = new int[] {0};
+        slotCheatPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         slotCheatPanel.setLayout(slotCheatPanelLayout);
 
         slotCheatSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1737,8 +1883,10 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
         slotCheatPanel.add(slotCheatSelecterComboBox, gridBagConstraints);
 
         slotCheatPriceTextField.setText("Price");
@@ -1748,27 +1896,37 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
         slotCheatPanel.add(slotCheatPriceTextField, gridBagConstraints);
 
         slotCheatPlayerSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
         slotCheatPanel.add(slotCheatPlayerSelecterComboBox, gridBagConstraints);
 
         slotCheatOwnerLabel.setText("Owner:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 33;
+        gridBagConstraints.ipady = 6;
         slotCheatPanel.add(slotCheatOwnerLabel, gridBagConstraints);
 
-        slotCheatPriceLabel.setText("Price:");
+        slotCheatSlotLabel.setText("Slot:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        slotCheatPanel.add(slotCheatPriceLabel, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 33;
+        gridBagConstraints.ipady = 6;
+        slotCheatPanel.add(slotCheatSlotLabel, gridBagConstraints);
 
         slotCheatButton.setText("Set");
         slotCheatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1777,8 +1935,8 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 12;
         slotCheatPanel.add(slotCheatButton, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("微軟正黑體", 1, 18)); // NOI18N
@@ -1787,6 +1945,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
         slotCheatPanel.add(jLabel1, gridBagConstraints);
 
         jLabel2.setText("    ");
@@ -1795,10 +1954,55 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         slotCheatPanel.add(jLabel2, gridBagConstraints);
 
+        slotCheatPriceLabel.setText("Price:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 33;
+        gridBagConstraints.ipady = 6;
+        slotCheatPanel.add(slotCheatPriceLabel, gridBagConstraints);
+
+        shotCheaterDescriptionLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        shotCheaterDescriptionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        shotCheaterDescriptionLabel1.setText("*adjust the owner of the land");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        slotCheatPanel.add(shotCheaterDescriptionLabel1, gridBagConstraints);
+
+        shotCheaterDescriptionLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        shotCheaterDescriptionLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        shotCheaterDescriptionLabel2.setText("*modify the slot’s status");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 3;
+        slotCheatPanel.add(shotCheaterDescriptionLabel2, gridBagConstraints);
+
+        shotCheaterDescriptionLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        shotCheaterDescriptionLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        shotCheaterDescriptionLabel3.setText("*adjust the price of the land");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        slotCheatPanel.add(shotCheaterDescriptionLabel3, gridBagConstraints);
+
+        shotCheaterDescriptionLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        shotCheaterDescriptionLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        shotCheaterDescriptionLabel4.setText("*select the target slot to modify, once selected the status below will update accordingly.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        slotCheatPanel.add(shotCheaterDescriptionLabel4, gridBagConstraints);
+
         playerCheatPanel.setBackground(new java.awt.Color(204, 255, 204));
         java.awt.GridBagLayout playerCheatPanelLayout = new java.awt.GridBagLayout();
         playerCheatPanelLayout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        playerCheatPanelLayout.rowHeights = new int[] {0};
+        playerCheatPanelLayout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         playerCheatPanel.setLayout(playerCheatPanelLayout);
 
         playerCheatPositionSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1813,8 +2017,9 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 16;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatPositionSelecterComboBox, gridBagConstraints);
 
         playerCheatBalanceTextField.setText("Balance");
@@ -1824,27 +2029,34 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 8;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatBalanceTextField, gridBagConstraints);
 
         playerCheatBankruptSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatBankruptSelecterComboBox, gridBagConstraints);
 
         playerCheatBankruptLabel.setText("Bankrup:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 10;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE;
         playerCheatPanel.add(playerCheatBankruptLabel, gridBagConstraints);
 
-        playerCheatBalanceLabel.setText("Balance:");
+        playerCheatPlayerLabel.setText("Player:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        playerCheatPanel.add(playerCheatBalanceLabel, gridBagConstraints);
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        playerCheatPanel.add(playerCheatPlayerLabel, gridBagConstraints);
 
         playerCheatButton.setText("Set");
         playerCheatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1853,8 +2065,9 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 22;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 18;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatButton, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("微軟正黑體", 1, 18)); // NOI18N
@@ -1863,18 +2076,25 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(jLabel3, gridBagConstraints);
 
         jLabel4.setText("    ");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(jLabel4, gridBagConstraints);
 
         playerCheatPositionLabel.setText("Position:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 14;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE;
         playerCheatPanel.add(playerCheatPositionLabel, gridBagConstraints);
 
         playerCheatSelecterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -1885,20 +2105,89 @@ public class MonopolyView extends javax.swing.JFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatSelecterComboBox, gridBagConstraints);
 
         playerCheatTurnHolderLabel.setText("Turn Holder:");
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 18;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE;
         playerCheatPanel.add(playerCheatTurnHolderLabel, gridBagConstraints);
 
         playerCheatTurnHolderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 20;
-        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatTurnHolderComboBox, gridBagConstraints);
+
+        playerCheaterDescriptionLabel1.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel1.setText("*modify the player’s status");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 5;
+        playerCheatPanel.add(playerCheaterDescriptionLabel1, gridBagConstraints);
+
+        playerCheaterDescriptionLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        playerCheaterDescriptionLabel2.setText("*select the target player to modify, once selected the status below will update accordingly.");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        playerCheatPanel.add(playerCheaterDescriptionLabel2, gridBagConstraints);
+
+        playerCheaterDescriptionLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        playerCheaterDescriptionLabel3.setText("*adjust the amount of money of target");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        playerCheatPanel.add(playerCheaterDescriptionLabel3, gridBagConstraints);
+
+        playerCheaterDescriptionLabel4.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        playerCheaterDescriptionLabel4.setText("*adjust the status of bankrupt");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        playerCheatPanel.add(playerCheaterDescriptionLabel4, gridBagConstraints);
+
+        playerCheaterDescriptionLabel5.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        playerCheaterDescriptionLabel5.setText("*adjust the position of target is stayed");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 12;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        playerCheatPanel.add(playerCheaterDescriptionLabel5, gridBagConstraints);
+
+        playerCheatBalanceLabel1.setText("Balance:");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 8;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 11;
+        gridBagConstraints.ipady = 10;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.BELOW_BASELINE;
+        playerCheatPanel.add(playerCheatBalanceLabel1, gridBagConstraints);
+
+        playerCheaterDescriptionLabel6.setForeground(new java.awt.Color(153, 153, 153));
+        playerCheaterDescriptionLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        playerCheaterDescriptionLabel6.setText("*if set to yes, target will become the holder of this turn");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 8;
+        gridBagConstraints.gridy = 14;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        playerCheatPanel.add(playerCheaterDescriptionLabel6, gridBagConstraints);
 
         javax.swing.GroupLayout testingPanelLayout = new javax.swing.GroupLayout(testingPanel);
         testingPanel.setLayout(testingPanelLayout);
@@ -1906,19 +2195,18 @@ public class MonopolyView extends javax.swing.JFrame {
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(testingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(slotCheatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(playerCheatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1008, Short.MAX_VALUE))
+                .addComponent(playerCheatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1024, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(slotCheatPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         testingPanelLayout.setVerticalGroup(
             testingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(testingPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(playerCheatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(slotCheatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(625, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("testing panel", testingPanel);
@@ -1978,12 +2266,12 @@ public class MonopolyView extends javax.swing.JFrame {
                 slotCheatPlayerSelecterComboBox.setSelectedItem("Player " + fakeSlot.getOwner().getPlayerID());
             }
             if (fakeSlot.getSlotPrice() <= 0) {
-                slotCheatPriceLabel.setText("Bonus:");
+                slotCheatSlotLabel.setText("Bonus:");
                 slotCheatPriceTextField.setText(Integer.toString(Math.abs(fakeSlot.getSlotPrice())));
                 slotCheatOwnerLabel.setVisible(false);
                 slotCheatPlayerSelecterComboBox.setVisible(false);
             } else {
-                slotCheatPriceLabel.setText("Price:");
+                slotCheatSlotLabel.setText("Price:");
                 slotCheatOwnerLabel.setVisible(true);
                 slotCheatPlayerSelecterComboBox.setVisible(true);
             }
@@ -1999,7 +2287,7 @@ public class MonopolyView extends javax.swing.JFrame {
         int slotID = Integer.parseInt(slotCheatSelecterComboBox.getSelectedItem().toString().split(" ")[0]);
 
         int slotPrice;
-        if (slotCheatPriceLabel.getText().compareTo("Bonus:") == 0) {
+        if (slotCheatSlotLabel.getText().compareTo("Bonus:") == 0) {
             slotPrice = 0 - Integer.parseInt(slotCheatPriceTextField.getText());
         } else {
             slotPrice = Integer.parseInt(slotCheatPriceTextField.getText());
@@ -2500,7 +2788,9 @@ public class MonopolyView extends javax.swing.JFrame {
             sus.getSpaceLabel().setText(" ");
             sus.getPriceLabel().setText(" ");
             sus.getOwnerLabel().setText("available");
-
+            //clear all space and owner label color
+            sus.getSpaceLabel().setBackground(java.awt.Color.getColor("eee"));
+            sus.getOwnerLabel().setBackground(java.awt.Color.getColor("eee"));
         }
 
         for (Slot s : slots) {
@@ -2525,11 +2815,15 @@ public class MonopolyView extends javax.swing.JFrame {
                 for (Slot os : p.getOwnedSlots()) {
                     JLabel ownerLabel = slotUiSets.get(os.getSlotID()).getOwnerLabel();
                     ownerLabel.setText(Integer.toString(p.getPlayerID()));
+                    //set ownerlabel color
+                    ownerLabel.setBackground(java.awt.Color.orange);
                 }
                 //print id to located slot
                 JLabel spaceLabel = slotUiSets.get(p.getPosition()).getSpaceLabel();
                 String tmp = spaceLabel.getText().trim();
                 spaceLabel.setText((tmp + " " + Integer.toString(p.getPlayerID())).trim());
+                //set spacelabel color
+                spaceLabel.setBackground(java.awt.Color.GRAY);
             }
         }
 
@@ -2615,17 +2909,24 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel playerBalanceLabel1;
     private javax.swing.JLabel playerBalanceLabel2;
     private javax.swing.JLabel playerBalanceLabel3;
-    private javax.swing.JLabel playerCheatBalanceLabel;
+    private javax.swing.JLabel playerCheatBalanceLabel1;
     private javax.swing.JTextField playerCheatBalanceTextField;
     private javax.swing.JLabel playerCheatBankruptLabel;
     private javax.swing.JComboBox<String> playerCheatBankruptSelecterComboBox;
     private javax.swing.JButton playerCheatButton;
     private javax.swing.JPanel playerCheatPanel;
+    private javax.swing.JLabel playerCheatPlayerLabel;
     private javax.swing.JLabel playerCheatPositionLabel;
     private javax.swing.JComboBox<String> playerCheatPositionSelecterComboBox;
     private javax.swing.JComboBox<String> playerCheatSelecterComboBox;
     private javax.swing.JComboBox<String> playerCheatTurnHolderComboBox;
     private javax.swing.JLabel playerCheatTurnHolderLabel;
+    private javax.swing.JLabel playerCheaterDescriptionLabel1;
+    private javax.swing.JLabel playerCheaterDescriptionLabel2;
+    private javax.swing.JLabel playerCheaterDescriptionLabel3;
+    private javax.swing.JLabel playerCheaterDescriptionLabel4;
+    private javax.swing.JLabel playerCheaterDescriptionLabel5;
+    private javax.swing.JLabel playerCheaterDescriptionLabel6;
     private javax.swing.JLabel playerNameLabel0;
     private javax.swing.JLabel playerNameLabel1;
     private javax.swing.JLabel playerNameLabel2;
@@ -2663,6 +2964,10 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel priceLabel9;
     private javax.swing.JButton secondButton;
     private javax.swing.JLabel secondMessageLabel;
+    private javax.swing.JLabel shotCheaterDescriptionLabel1;
+    private javax.swing.JLabel shotCheaterDescriptionLabel2;
+    private javax.swing.JLabel shotCheaterDescriptionLabel3;
+    private javax.swing.JLabel shotCheaterDescriptionLabel4;
     private javax.swing.JPanel slot0Panel;
     private javax.swing.JPanel slot10Panel;
     private javax.swing.JPanel slot11Panel;
@@ -2693,6 +2998,7 @@ public class MonopolyView extends javax.swing.JFrame {
     private javax.swing.JLabel slotCheatPriceLabel;
     private javax.swing.JTextField slotCheatPriceTextField;
     private javax.swing.JComboBox<String> slotCheatSelecterComboBox;
+    private javax.swing.JLabel slotCheatSlotLabel;
     private javax.swing.JLabel spaceLabel0;
     private javax.swing.JLabel spaceLabel1;
     private javax.swing.JLabel spaceLabel10;
