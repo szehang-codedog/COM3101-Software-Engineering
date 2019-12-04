@@ -27,6 +27,9 @@ public class MonopolyControl {
         model.loadData();
         view.initGame(model.getPlayers(), model.getSlots(), model.getTurnHolder());
         view.initCheatPanel(model.getPlayers(), model.getSlots(), model.getTurnHolder(), model.getTurn());
+        //refreshView
+        //System.out.println("refresh");
+        view.refreshView(model.getPlayers(), model.getSlots());
         turnStage = 0;
     }
 
