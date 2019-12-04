@@ -2041,7 +2041,7 @@ public class MonopolyView extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         playerCheatPanel.add(playerCheatBankruptSelecterComboBox, gridBagConstraints);
 
-        playerCheatBankruptLabel.setText("Bankrup:");
+        playerCheatBankruptLabel.setText("Bankrupt:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 10;
@@ -2271,7 +2271,7 @@ public class MonopolyView extends javax.swing.JFrame {
                 slotCheatOwnerLabel.setVisible(false);
                 slotCheatPlayerSelecterComboBox.setVisible(false);
             } else {
-                slotCheatSlotLabel.setText("Price:");
+                slotCheatSlotLabel.setText("Slot:");
                 slotCheatOwnerLabel.setVisible(true);
                 slotCheatPlayerSelecterComboBox.setVisible(true);
             }
