@@ -356,10 +356,10 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         tradeBidTextField0.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tradeBidTextField0InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tradeBidTextField0.addActionListener(new java.awt.event.ActionListener() {
@@ -382,10 +382,10 @@ public class MonopolyView extends javax.swing.JFrame {
             }
         });
         tradeBidTextField1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tradeBidTextField1InputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -2266,14 +2266,20 @@ public class MonopolyView extends javax.swing.JFrame {
                 slotCheatPlayerSelecterComboBox.setSelectedItem("Player " + fakeSlot.getOwner().getPlayerID());
             }
             if (fakeSlot.getSlotPrice() <= 0) {
-                slotCheatSlotLabel.setText("Bonus:");
+                slotCheatSlotLabel.setText("Slot:");
+                slotCheatPriceLabel.setText("Bonus:");
                 slotCheatPriceTextField.setText(Integer.toString(Math.abs(fakeSlot.getSlotPrice())));
                 slotCheatOwnerLabel.setVisible(false);
                 slotCheatPlayerSelecterComboBox.setVisible(false);
+                shotCheaterDescriptionLabel1.setVisible(false);
+                shotCheaterDescriptionLabel3.setText("*adjust the bonus of the land");
             } else {
                 slotCheatSlotLabel.setText("Slot:");
+                slotCheatPriceLabel.setText("Price:");
                 slotCheatOwnerLabel.setVisible(true);
                 slotCheatPlayerSelecterComboBox.setVisible(true);
+                shotCheaterDescriptionLabel1.setVisible(true);
+                shotCheaterDescriptionLabel3.setText("*adjust the price of the land");
             }
         }
 
